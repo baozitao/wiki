@@ -1,0 +1,280 @@
+<!--
+title: kubekey
+description: 
+published: true
+date: 2022-04-03T15:13:23.679Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-02T15:16:06.040Z
+-->
+
+<h1 class="toc-header" id="kubekey"> KubeKey</h1>
+<h2 class="toc-header" id="支持的环境"> 支持的环境</h2>
+<h3 class="toc-header" id="linux-发行版"> Linux 发行版</h3>
+<ul>
+<li><strong>Ubuntu</strong>  <em>16.04, 18.04, 20.04</em></li>
+<li><strong>Debian</strong>  <em>Buster, Stretch</em></li>
+<li><strong>CentOS/RHEL</strong>  <em>7</em></li>
+<li><strong>SUSE Linux Enterprise Server</strong> <em>15</em></li>
+</ul>
+<blockquote>
+<p>建议使用 Linux Kernel 版本: <code>4.15 or later</code> <br>
+可以通过命令 <code>uname -srm</code> 查看 Linux Kernel 版本。</p>
+</blockquote>
+<h3 class="toc-header" id="kubernetes-版本"> <span id="KubernetesVersions">Kubernetes 版本</span></h3>
+<ul>
+<li><strong>v1.17</strong>:   <em>v1.17.9</em></li>
+<li><strong>v1.18</strong>:   <em>v1.18.6</em></li>
+<li><strong>v1.19</strong>:   <em>v1.19.8</em></li>
+<li><strong>v1.20</strong>:   <em>v1.20.6</em></li>
+<li><strong>v1.21</strong>:   <em>v1.21.5</em>  (default)</li>
+<li><strong>v1.22</strong>:   <em>v1.22.1</em></li>
+</ul>
+<blockquote>
+<p>查看更多支持的版本<a class="is-asset-link" href="./docs/kubernetes-versions.md">点击这里</a></p>
+</blockquote>
+<h2 class="toc-header" id="要求和建议"> 要求和建议</h2>
+<ul>
+<li>最低资源要求（仅对于最小安装 KubeSphere）：
+<ul>
+<li>2 核虚拟 CPU</li>
+<li>4 GB 内存</li>
+<li>20 GB 储存空间</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>/var/lib/docker 主要用于存储容器数据，在使用和操作过程中会逐渐增大。对于生产环境，建议 /var/lib/docker 单独挂盘。</p>
+</blockquote>
+<ul>
+<li>操作系统要求：
+<ul>
+<li><code>SSH</code> 可以访问所有节点。</li>
+<li>所有节点的时间同步。</li>
+<li><code>sudo</code>/<code>curl</code>/<code>openssl</code> 应在所有节点使用。</li>
+<li><code>docker</code> 可以自己安装，也可以通过 KubeKey 安装。</li>
+<li><code>Red Hat</code> 在其 <code>Linux</code> 发行版本中包括了<code>SELinux</code>，建议<a class="is-asset-link" href="./docs/turn-off-SELinux_zh-CN.md">关闭SELinux</a>或者将<a class="is-asset-link" href="./docs/turn-off-SELinux_zh-CN.md">SELinux的模式切换</a>为Permissive[宽容]工作模式</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>建议您的操作系统环境足够干净 (不安装任何其他软件)，否则可能会发生冲突。</li>
+<li>如果在从 <a class="is-external-link" href="http://dockerhub.io">dockerhub.io</a> 下载镜像时遇到问题，建议准备一个容器镜像仓库 (加速器)。<a class="is-external-link" href="https://docs.docker.com/registry/recipes/mirror/#configure-the-docker-daemon">为 Docker 守护程序配置镜像加速</a>。</li>
+<li>默认情况下，KubeKey 将安装 <a class="is-external-link" href="https://openebs.io/">OpenEBS</a> 来为开发和测试环境配置 LocalPV，这对新用户来说非常方便。对于生产，请使用 NFS/Ceph/GlusterFS 或商业化存储作为持久化存储，并在所有节点中安装<a class="is-asset-link" href="./docs/storage-client.md">相关的客户端</a> 。</li>
+<li>如果遇到拷贝时报权限问题Permission denied,建议优先考虑查看<a class="is-asset-link" href="./docs/turn-off-SELinux_zh-CN.md">SELinux的原因</a>。</li>
+</ul>
+</blockquote>
+<ul>
+<li>依赖要求:</li>
+</ul>
+<p>KubeKey 可以同时安装 Kubernetes 和 KubeSphere。根据 KubeSphere 所安装版本的不同，您所需要安装的依赖可能也不同。请参考以下表格查看您是否需要提前在节点上安装有关的依赖。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Kubernetes 版本 ≥ 1.18</th>
+<th>Kubernetes 版本 &lt; 1.18</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>socat</code></td>
+<td>必须安装</td>
+<td>可选，但推荐安装</td>
+</tr>
+<tr>
+<td><code>conntrack</code></td>
+<td>必须安装</td>
+<td>可选，但推荐安装</td>
+</tr>
+<tr>
+<td><code>ebtables</code></td>
+<td>可选，但推荐安装</td>
+<td>可选，但推荐安装</td>
+</tr>
+<tr>
+<td><code>ipset</code></td>
+<td>可选，但推荐安装</td>
+<td>可选，但推荐安装</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>网络和 DNS 要求：
+<ul>
+<li>确保 <code>/etc/resolv.conf</code> 中的 DNS 地址可用。否则，可能会导致集群中出现某些 DNS 问题。</li>
+<li>如果您的网络配置使用防火墙或安全组，则必须确保基础结构组件可以通过特定端口相互通信。建议您关闭防火墙或遵循链接配置：<a class="is-asset-link" href="docs/network-access.md">网络访问</a>。</li>
+</ul>
+</li>
+</ul>
+<h2 class="toc-header" id="用法"> 用法</h2>
+<h3 class="toc-header" id="获取安装程序可执行文件"> 获取安装程序可执行文件</h3>
+<ul>
+<li>
+<p>下载KubeKey可执行文件 <a class="is-external-link" href="https://github.com/kubesphere/kubekey/releases">Releases page</a></p>
+<p>下载解压后可直接使用。</p>
+</li>
+<li>
+<p>从源代码生成二进制文件</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">git clone https://github.com/kubesphere/kubekey.git
+cd kubekey
+./build.sh
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>在构建之前，需要先安装 Docker。</li>
+<li>如果无法访问 <code>https://proxy.golang.org/</code>，比如在大陆，请执行 <code>build.sh -p</code>。</li>
+</ul>
+</blockquote>
+<h3 class="toc-header" id="创建集群"> 创建集群</h3>
+<h4 class="toc-header" id="快速开始"> 快速开始</h4>
+<p>快速入门使用 <code>all-in-one</code> 安装，这是熟悉 KubeSphere 的良好开始。</p>
+<blockquote>
+<p>注意： 由于 Kubernetes 暂不支持大写 NodeName， hostname 中包含大写字母将导致后续安装过程无法正常结束</p>
+</blockquote>
+<h5 class="toc-header" id="命令"> 命令</h5>
+<blockquote>
+<p>如果无法访问 <code>https://storage.googleapis.com</code>, 请先执行 <code>export KKZONE=cn</code>.</p>
+</blockquote>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk create cluster [--with-kubernetes version] [--with-kubesphere version]
+</code></pre>
+<h5 class="toc-header" id="例子"> 例子</h5>
+<ul>
+<li>
+<p>使用默认版本创建一个纯 Kubernetes 集群</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk create cluster
+</code></pre>
+</li>
+<li>
+<p>创建指定一个（<a href="#KubernetesVersions">支持的版本</a>）的 Kubernetes 集群</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk create cluster --with-kubernetes v1.19.8
+</code></pre>
+</li>
+<li>
+<p>创建一个部署了 KubeSphere 的 Kubernetes 集群 （例如 <code>--with-kubesphere v3.1.0</code>）</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk create cluster --with-kubesphere [version]
+</code></pre>
+</li>
+</ul>
+<h4 class="toc-header" id="高级用法"> 高级用法</h4>
+<p>您可以使用高级安装来控制自定义参数或创建多节点集群。具体来说，通过指定配置文件来创建集群。</p>
+<blockquote>
+<p>如果无法访问 <code>https://storage.googleapis.com</code>, 请先执行 <code>export KKZONE=cn</code>.</p>
+</blockquote>
+<ol>
+<li>
+<p>首先，创建一个示例配置文件</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk create config [--with-kubernetes version] [--with-kubesphere version] [(-f | --filename) path]
+</code></pre>
+<p><strong>例子：</strong></p>
+<ul>
+<li>
+<p>使用默认配置创建一个示例配置文件。您也可以指定文件名称或文件所在的文件夹。</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk create config [-f ~/myfolder/config-sample.yaml]
+</code></pre>
+</li>
+<li>
+<p>同时安装 KubeSphere</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk create config --with-kubesphere
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>根据您的环境修改配置文件 config-sample.yaml</p>
+</li>
+</ol>
+<blockquote>
+<p>注意： 由于 Kubernetes 暂不支持大写 NodeName， worker 节点名中包含大写字母将导致后续安装过程无法正常结束</p>
+<p>当指定安装KubeSphere时，要求集群中有可用的持久化存储。默认使用localVolume，如果需要使用其他持久化存储，请参阅 <a class="is-asset-link" href="./docs/addons.md">addons</a> 配置。</p>
+</blockquote>
+<ol start="3">
+<li>
+<p>使用配置文件创建集群。</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk create cluster -f ~/myfolder/config-sample.yaml
+</code></pre>
+</li>
+</ol>
+<h3 class="toc-header" id="启用多集群管理"> 启用多集群管理</h3>
+<p>默认情况下，Kubekey 将仅安装一个 Solo 模式的单集群，即未开启 Kubernetes 多集群联邦。如果您希望将 KubeSphere 作为一个支持多集群集中管理的中央面板，您需要在 <a class="is-asset-link" href="docs/config-example.md">config-example.yaml</a> 中设置 <code>ClusterRole</code>。关于多集群的使用文档，请参考 <a class="is-external-link" href="https://github.com/kubesphere/community/blob/master/sig-multicluster/how-to-setup-multicluster-on-kubesphere/README_zh.md">如何启用多集群</a>。</p>
+<h3 class="toc-header" id="开启可插拔功能组件"> 开启可插拔功能组件</h3>
+<p>KubeSphere 从 2.1.0 版本开始对 Installer 的各功能组件进行了解耦，快速安装将默认仅开启最小化安装（Minimal Installation），Installer 支持在安装前或安装后自定义可插拔的功能组件的安装。使最小化安装更快速轻量且资源占用更少，也方便不同用户按需选择安装不同的功能组件。</p>
+<p>KubeSphere 有多个可插拔功能组件，功能组件的介绍可参考 <a class="is-asset-link" href="docs/config-example.md">配置示例</a>。您可以根据需求，选择开启安装 KubeSphere 的可插拔功能组件。我们非常建议您开启这些功能组件来体验 KubeSphere 完整的功能以及端到端的解决方案。请在安装前确保您的机器有足够的 CPU 与内存资源。开启可插拔功能组件可参考 <a class="is-external-link" href="https://github.com/kubesphere/ks-installer/blob/master/README_zh.md#%E5%AE%89%E8%A3%85%E5%8A%9F%E8%83%BD%E7%BB%84%E4%BB%B6">开启可选功能组件</a>。</p>
+<h3 class="toc-header" id="添加节点"> 添加节点</h3>
+<p>将新节点的信息添加到集群配置文件，然后应用更改。</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk add nodes -f config-sample.yaml
+</code></pre>
+<h3 class="toc-header" id="删除节点"> 删除节点</h3>
+<p>通过以下命令删除节点，nodename指需要删除的节点名。</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk delete node &lt;nodeName&gt; -f config-sample.yaml
+</code></pre>
+<h3 class="toc-header" id="删除集群"> 删除集群</h3>
+<p>您可以通过以下命令删除集群：</p>
+<ul>
+<li>如果您以快速入门（all-in-one）开始：</li>
+</ul>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk delete cluster
+</code></pre>
+<ul>
+<li>如果从高级安装开始（使用配置文件创建的集群）：</li>
+</ul>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk delete cluster [-f config-sample.yaml]
+</code></pre>
+<h3 class="toc-header" id="集群升级"> 集群升级</h3>
+<h4 class="toc-header" id="单节点集群"> 单节点集群</h4>
+<p>升级集群到指定版本。</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk upgrade [--with-kubernetes version] [--with-kubesphere version] 
+</code></pre>
+<ul>
+<li><code>--with-kubernetes</code> 指定kubernetes目标版本。</li>
+<li><code>--with-kubesphere</code> 指定kubesphere目标版本。</li>
+</ul>
+<h4 class="toc-header" id="多节点集群"> 多节点集群</h4>
+<p>通过指定配置文件对集群进行升级。</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk upgrade [--with-kubernetes version] [--with-kubesphere version] [(-f | --filename) path]
+</code></pre>
+<ul>
+<li><code>--with-kubernetes</code> 指定kubernetes目标版本。</li>
+<li><code>--with-kubesphere</code> 指定kubesphere目标版本。</li>
+<li><code>-f</code> 指定集群安装时创建的配置文件。</li>
+</ul>
+<blockquote>
+<p>注意: 升级多节点集群需要指定配置文件. 如果集群非kubekey创建，或者创建集群时生成的配置文件丢失，需要重新生成配置文件，或使用以下方法生成。</p>
+</blockquote>
+<p>Getting cluster info and generating kubekey's configuration file (optional).</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell">./kk create config [--from-cluster] [(-f | --filename) path] [--kubeconfig path]
+</code></pre>
+<ul>
+<li><code>--from-cluster</code> 根据已存在集群信息生成配置文件.</li>
+<li><code>-f</code> 指定生成配置文件路径.</li>
+<li><code>--kubeconfig</code> 指定集群kubeconfig文件.</li>
+<li>由于无法全面获取集群配置，生成配置文件后，请根据集群实际信息补全配置文件。</li>
+</ul>
+<h3 class="toc-header" id="启用-kubectl-自动补全"> 启用 kubectl 自动补全</h3>
+<p>KubeKey 不会启用 kubectl 自动补全功能。请参阅下面的指南并将其打开：</p>
+<p><strong>先决条件</strong>：确保已安装 <code>bash-autocompletion</code> 并可以正常工作。</p>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-shell"># 安装 bash-completion
+apt-get install bash-completion
+
+# 将 completion 脚本添加到你的 ~/.bashrc 文件
+echo 'source &lt;(kubectl completion bash)' &gt;&gt;~/.bashrc
+
+# 将 completion 脚本添加到 /etc/bash_completion.d 目录
+kubectl completion bash &gt;/etc/bash_completion.d/kubectl
+</code></pre>
+<p>更详细的参考可以在<a class="is-external-link" href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion">这里</a>找到。</p>
+<h2 class="toc-header" id="相关文档"> 相关文档</h2>
+<ul>
+<li><a class="is-asset-link" href="docs/config-example.md">配置示例</a></li>
+<li><a class="is-asset-link" href="docs/ha-mode.md">高可用集群</a></li>
+<li><a class="is-asset-link" href="docs/addons.md">自定义插件安装</a></li>
+<li><a class="is-asset-link" href="docs/network-access.md">网络访问</a></li>
+<li><a class="is-asset-link" href="docs/storage-client.md">存储客户端</a></li>
+<li><a class="is-asset-link" href="docs/roadmap.md">路线图</a></li>
+<li><a class="is-asset-link" href="docs/check-renew-certificate.md">查看或更新证书</a></li>
+<li><a class="is-asset-link" href="docs/developer-guide.md">开发指南</a></li>
+</ul>
