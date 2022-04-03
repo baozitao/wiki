@@ -27,59 +27,60 @@ bind_port = 7000
 
 ## auto.sh set
 ### `client` set auto.sh
-> add auto .sh
+add auto .sh
 ```
 vim /home/frp/auto.sh
 ```
-> add content
+add content
 ```
 #!/bin/bash
 /home/frp/frpc -c /home/frp/frpc.ini
 ```
-> set permission
+set permission
 ```
 chmod 777 /home/frp/auto.sh
 ```
 ### `server` set auto.sh
-> add auto .sh
+add auto .sh
 ```
 vim /home/frp/auto.sh
 ```
-> add content
+add content
 ```
 #!/bin/bash
 /home/frp/frps -c /home/frp/frps.ini
 ```
-> set permission
+set permission
 ```
 chmod 777 /home/frp/auto.sh
 ```
 
 ## same set  frp.service
-> systemd server add
+systemd server add
 ```
 vim /etc/systemd/system/frp.service
 ```
-> add content, para `ExecStart` must same with `auto.sh` path
+add content, para `ExecStart` must same with `auto.sh` path
 ```
 [Unit]
 Description=Run a Custom Script at Startup
 ConditionFileIsExecutable=/home/frp/auto.sh
-After=default.target
+After=After=network-online.target firewalld.service
 
 [Service]
 ExecStart=/bin/sh /home/frp/auto.sh
+Restart=always
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 ```
 
-> set permission
+set permission
 ```
 chmod 777 /etc/systemd/system/frp.service
 ```
 
-> set start
+set start
 ```
 systemctl daemon-reload 
 systemctl enable frp
