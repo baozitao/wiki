@@ -6,5 +6,6 @@ su
 timedatectl  set-timezone Asia/Shanghai
 perl -pi -e 's/(.*(?=ssh-rsa))//g' /root/.ssh/authorized_keys
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' /etc/ssh/sshd_config
 service sshd restart
 ```
