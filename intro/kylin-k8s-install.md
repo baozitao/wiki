@@ -2,7 +2,7 @@
 title: kylin-k8s-install
 description: 
 published: true
-date: 2022-04-05T14:05:42.529Z
+date: 2022-04-05T14:10:19.076Z
 tags: 
 editor: markdown
 dateCreated: 2022-04-02T15:16:10.846Z
@@ -45,9 +45,7 @@ EOF
 ```
 ### 修改源
 ```
-echo << EOF > /etc/apt/sources.list
-deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp2-server main restricted universe multiverse
-EOF
+echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp2-server main restricted universe multiverse" | sudo tee /etc/apt/sources.list > /dev/null
 ```
 
 ### 安装docker
