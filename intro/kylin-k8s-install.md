@@ -1,6 +1,16 @@
+---
+title: kylin-k8s-install
+description: 
+published: true
+date: 2022-04-05T13:28:08.074Z
+tags: 
+editor: markdown
+dateCreated: 2022-04-02T15:16:10.846Z
+---
+
 # 04.kylin-k8s-install
 
-### 关闭交换分区 ,注释掉最后一行，swap这一行
+### 关闭交换分区 ,`注释掉最后swap这一行`
 ```
 vim /etc/fstab
 ```
