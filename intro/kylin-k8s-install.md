@@ -2,7 +2,7 @@
 title: kylin-k8s-install
 description: 
 published: true
-date: 2022-04-05T14:18:22.612Z
+date: 2022-04-05T14:24:09.774Z
 tags: 
 editor: markdown
 dateCreated: 2022-04-02T15:16:10.846Z
@@ -27,6 +27,13 @@ timedatectl set-timezone Asia/Shanghai
 hostnamectl set-hostname master
 hostname newname
 ```
+
+### 设置本机解析名
+将127.0.0.1映射为/etc/hostname中的名字
+```
+vim /etc/hosts
+```
+
 
 ### 关闭过滤
 
