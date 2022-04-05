@@ -2,7 +2,7 @@
 title: kylin-k8s-install
 description: 
 published: true
-date: 2022-04-05T14:31:05.654Z
+date: 2022-04-05T14:33:12.917Z
 tags: 
 editor: markdown
 dateCreated: 2022-04-02T15:16:10.846Z
@@ -103,11 +103,11 @@ dpkg -i xxxx.deb
 > 方法二：添加阿里云镜像源
 
 ```
+sudo apt-get install ca-certificates curl gnupg lsb-release apt-transport-https curl
 curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
 cat << EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
 EOF
-apt install apt-transport-https
 apt-get update
 apt-cache show kubeadm | grep Version
 ```
