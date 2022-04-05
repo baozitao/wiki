@@ -2,7 +2,7 @@
 title: kylin-k8s-install
 description: 
 published: true
-date: 2022-04-05T14:01:53.739Z
+date: 2022-04-05T14:05:11.795Z
 tags: 
 editor: markdown
 dateCreated: 2022-04-02T15:16:10.846Z
@@ -51,10 +51,8 @@ EOF
 ```
 
 ### 安装docker
+查看[安装docker](/dockerinstall)
 
-```
-通过离线方式安装
-```
 
 ### 配置 Docker daemon，设置cgroupdriver为systemd
 
