@@ -2,7 +2,7 @@
 title: kylin-k8s-install
 description: 
 published: true
-date: 2022-04-05T14:10:19.076Z
+date: 2022-04-05T14:18:22.612Z
 tags: 
 editor: markdown
 dateCreated: 2022-04-02T15:16:10.846Z
@@ -56,7 +56,8 @@ echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp2-server main restric
 
 ```
 vim /etc/docker/daemon.json
-
+```
+```
 {
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
