@@ -2,7 +2,7 @@
 title: kylin-k8s-install
 description: 
 published: true
-date: 2022-04-05T14:24:09.774Z
+date: 2022-04-05T14:29:20.339Z
 tags: 
 editor: markdown
 dateCreated: 2022-04-02T15:16:10.846Z
