@@ -3,7 +3,11 @@
 
 
 ## ssh set
-### client set
+> frpc.ini set
+
+```
+vim /home/frp/frpc.ini
+```
 ```
 # frpc.ini
 [common]
@@ -17,7 +21,11 @@ local_port = 22
 remote_port = 6000
 ```
 
-### server set
+> **frps.ini set**
+
+```
+vim /home/frp/frps.ini
+```
 ```
 # frps.ini
 [common]
