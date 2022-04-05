@@ -1,12 +1,18 @@
+---
+title: kylin-k8s-install
+description: 
+published: true
+date: 2022-04-05T13:28:08.074Z
+tags: 
+editor: markdown
+dateCreated: 2022-04-02T15:16:10.846Z
+---
+
 # 04.kylin-k8s-install
 
-### 关闭交换分区
-
+### 关闭交换分区 ,`注释掉最后swap这一行`
 ```
-swapoff -a 
-cp -p /etc/fstab /etc/fstab.bak$(date '+%Y%m%d%H%M%S')
-sed -i "s/\/dev\/mapper\/centos-swap/\##\/dev\/mapper\/centos-swap/g" /etc/fstab
-systemctl daemon-reload
+vim /etc/fstab
 ```
 
 ### 设置时间同步
