@@ -2,7 +2,7 @@
 title: kylin-k8s-install
 description: 
 published: true
-date: 2022-04-05T14:42:12.404Z
+date: 2022-04-05T14:45:09.392Z
 tags: 
 editor: markdown
 dateCreated: 2022-04-02T15:16:10.846Z
@@ -126,9 +126,9 @@ apt-cache show kubeadm | grep Version
 
 ```
 export K8S_VERSION=1.23.5-00
-apt-get install kubelet=${K8S_VERSION} 
-apt-get install kubeadm=${K8S_VERSION} 
-apt-get install kubectl=${K8S_VERSION}
+echo y | apt-get install kubelet=${K8S_VERSION} 
+echo y | apt-get install kubeadm=${K8S_VERSION} 
+echo y | apt-get install kubectl=${K8S_VERSION}
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
@@ -145,12 +145,12 @@ sudo systemctl status kubelet
 
 ```
 kubeadm init \
---apiserver-advertise-address=10.0.0.107 \
+--apiserver-advertise-address=10.0.0.121 \
 --image-repository registry.aliyuncs.com/google_containers \
---control-plane-endpoint=10.0.0.107 \
+--control-plane-endpoint=10.0.0.121 \
 --kubernetes-version v1.23.5 \
 --service-cidr=10.96.0.0/16 \
---pod-network-cidr=10.244.0.0/16\
+--pod-network-cidr=10.244.0.0/16
 ```
 
 ### 安装网络插件
