@@ -2,7 +2,7 @@
 title: kylin-k8s-install
 description: 
 published: true
-date: 2022-04-05T13:28:08.074Z
+date: 2022-04-05T14:01:53.739Z
 tags: 
 editor: markdown
 dateCreated: 2022-04-02T15:16:10.846Z
@@ -41,6 +41,12 @@ lsmod | grep br_netfilter
 cat > /etc/sysctl.d/k8s.conf << EOF
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
+EOF
+```
+### 修改源
+```
+echo << EOF > /etc/apt/sources.list
+deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp2-server main restricted universe multiverse
 EOF
 ```
 
