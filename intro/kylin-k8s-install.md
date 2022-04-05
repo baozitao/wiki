@@ -3,10 +3,8 @@
 ### 关闭交换分区
 
 ```
-swapoff -a 
-cp -p /etc/fstab /etc/fstab.bak$(date '+%Y%m%d%H%M%S')
-sed -i "s/\/dev\/mapper\/centos-swap/\##\/dev\/mapper\/centos-swap/g" /etc/fstab
-systemctl daemon-reload
+vim /etc/fstab
+#注释掉最后一行，swap这一行
 ```
 
 ### 设置时间同步
