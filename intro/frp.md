@@ -73,7 +73,7 @@ add content, para `ExecStart` must same with `auto.sh` path
 [Unit]
 Description=Run a Custom Script at Startup
 ConditionFileIsExecutable=/home/frp/auto.sh
-After=After=network-online.target firewalld.service
+After=network-online.target firewalld.service
 
 [Service]
 ExecStart=/bin/sh /home/frp/auto.sh
