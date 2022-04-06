@@ -57,14 +57,15 @@ echo "deb http://archive.kylinos.cn/kylin/KYLIN-ALL 4.0.2sp2-server main restric
 
 ### 安装docker
 查看[安装docker](/intro/dockerinstall)
-
+或者直接在线安装
+```
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+```
 
 ### 配置 Docker daemon，设置cgroupdriver为systemd
 
 ```
-vim /etc/docker/daemon.json
-```
-```
+cat << EOF | sudo tee /etc/docker/daemon.json
 {
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
@@ -75,6 +76,7 @@ vim /etc/docker/daemon.json
   "insecure-registries": ["10.0.0.231:8082","10.0.0.231:8083"],
   "registry-mirrors": ["http://10.0.0.231:8083"]
 }
+EOF
 ```
 
 ### 重启 docker 后台服务
@@ -86,10 +88,34 @@ sudo systemctl restart docker
 sudo systemctl status docker
 ```
 
-### 导入images
+### 导入kubeadm 相关镜像 ，images
 
+获取所需版本号
 ```
-docker load -i xxxxxxx.tar
+kubeadm config images list
+```
+生成文件
+```
+cat << EOF | sudo tee /home/images.sh
+#!/bin/bash
+images=(
+    kube-apiserver:v1.23.5
+    kube-controller-manager:v1.23.5
+    kube-scheduler:v1.23.5
+    kube-proxy:v1.23.5
+    pause:3.6
+    etcd:3.5.1-0
+    coredns:v1.8.6
+)
+
+for imageName in ${images[@]} ; do
+    docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/$imageName
+    docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/$imageName k8s.gcr.io/$imageName
+done
+EOF
+```
+```
+chmod +x /home/images.sh && ./home/images.sh
 ```
 
 ### kubeadm、kubelet、kubectl的安装
