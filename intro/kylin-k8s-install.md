@@ -2,7 +2,7 @@
 title: kylin-k8s-install
 description: 
 published: true
-date: 2022-04-05T14:46:27.680Z
+date: 2022-04-10T08:40:50.358Z
 tags: 
 editor: markdown
 dateCreated: 2022-04-02T15:16:10.846Z
@@ -73,6 +73,7 @@ cat << EOF | sudo tee /etc/docker/daemon.json
     "max-size": "100m"
   },
   "storage-driver": "overlay2",
+  "registry-mirrors": ["https://evy1apxm.mirror.aliyuncs.com"],
   "insecure-registries": ["10.0.0.231:8082","10.0.0.231:8083"],
   "registry-mirrors": ["http://10.0.0.231:8083"]
 }
