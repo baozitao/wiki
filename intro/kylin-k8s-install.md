@@ -175,9 +175,9 @@ chmod +x /home/images.sh && ./home/images.sh
 
 ```
 kubeadm init \
---apiserver-advertise-address=10.0.0.121 \
+--apiserver-advertise-address=10.0.0.113 \
 --image-repository registry.aliyuncs.com/google_containers \
---control-plane-endpoint=10.0.0.121 \
+--control-plane-endpoint=10.0.0.113 \
 --kubernetes-version v1.23.5 \
 --service-cidr=10.96.0.0/16 \
 --pod-network-cidr=10.244.0.0/16
