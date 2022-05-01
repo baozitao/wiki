@@ -8,7 +8,7 @@ editor: markdown
 dateCreated: 2022-04-02T15:16:10.846Z
 ---
 
-# 04.kylin-k8s-install
+# kylin-k8s-install
 
 ### 关闭交换分区 ,`注释掉最后swap这一行`
 ```
