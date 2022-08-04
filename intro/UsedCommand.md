@@ -54,12 +54,18 @@
     	1.  docker save $(docker images |grep-v REPOSITORY |awk'BEGIN{OFS=":";ORS=" "}{print $1,$2}') -o iammages.tar
     	2.  docker load -i haha.tar
 	49. 保存镜像
-    ```
-    #!/bin/sh
-    sum=` docker image list |wc -l`
-    COUNT=`expr $sum - 1`
-    echo 镜像数量：$COUNT
-    TAG=`docker image list|grep -v REPOSITORY|awk '{print $1":" $2}'|awk 'ORS=NR%"'$COUNT'"?" ":"\n"{print}'`
-    echo TAG值：$TAG
-    docker save $TAG -o images.tar
-    ```
+	    ```
+	    #!/bin/sh
+	    sum=` docker image list |wc -l`
+	    COUNT=`expr $sum - 1`
+	    echo 镜像数量：$COUNT
+	    TAG=`docker image list|grep -v REPOSITORY|awk '{print $1":" $2}'|awk 'ORS=NR%"'$COUNT'"?" ":"\n"{print}'`
+	    echo TAG值：$TAG
+	    docker save $TAG -o images.tar
+	    ```
+  	50 linux 的抓包 tcpdump udp port 18290 -XX -vvv -nn
+		-v：当分析和打印的时候，产生详细的输出。
+		-vv：产生比-v更详细的输出。
+		-vvv：产生比-vv更详细的输出。
+		-XX：输出包的头部数据，会以16进制和ASCII两种方式同时输出。
+		-nn ：直接以IP以及PORT number显示，而非主机名与服务名称
