@@ -79,3 +79,4 @@
 		lsof +D /usr/local/：同上，但是会搜索目录下的目录，时间较长
 		lsof -d 4：显示使用fd为4的进程
 		lsof -i -U：显示所有打开的端口和UNIX domain文件
+	52 通过UDP向指定IP（10.0.0.102）端口（1234）发送数据：echo “hello” > /dev/udp/10.0.0.102/1234
