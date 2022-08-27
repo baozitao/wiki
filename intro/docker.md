@@ -99,7 +99,7 @@ sudo docker run hello-world
 
 ## **New offline Install**
 ### **Install from a package**
-> **1.** Go to https://download.docker.com/linux/debian/dists/, choose your Debian version, then browse to **pool/stable/**, choose amd64, armhf, or arm64, and download the .deb file for the Docker Engine version you want to install
+> **1.** Go to https://download.docker.com/linux/ubuntu/dists/, choose your Debian version, then browse to **pool/stable/**, choose amd64, armhf, or arm64, and download the .deb file for the Docker Engine version you want to install
 
 > **2.** Install Docker Engine, changing the path below to the path where you downloaded the Docker package.
 ```
