@@ -102,12 +102,16 @@ sudo docker run hello-world
 > **1.** Go to https://download.docker.com/linux/ubuntu/dists/, choose your Debian version, then browse to **pool/stable/**, choose amd64, armhf, or arm64, and download the .deb file for the Docker Engine version you want to install
 
 
-> **2.** Download Docker Deb file.
+> **2.** Download all three Docker Deb file.
 ```
-docker-ce_20.10.9~3-0~ubuntu-focal_arm64.deb  
+docker-ce_20.10.9~3-0~ubuntu-focal_arm64.deb
+containerd.io_1.6.8-1_arm64.deb 
+docker-ce-cli_20.10.9~3-0~ubuntu-focal_arm64.deb 
+docker-ce-rootless-extras_20.10.9~3-0~ubuntu-focal_arm64.deb  
+docker-compose-plugin_2.6.0~ubuntu-focal_arm64.deb 
 ```
 
 > **3.** Install Docker Engine, changing the path below to the path where you downloaded the Docker package.
 ```
-sudo dpkg -i /path/to/package.deb
+sudo dpkg -i *.deb
 ```
