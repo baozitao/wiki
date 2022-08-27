@@ -81,3 +81,4 @@
 		lsof -i -U：显示所有打开的端口和UNIX domain文件
 	52 通过UDP向指定IP（10.0.0.102）端口（1234）发送数据：echo “hello” > /dev/udp/10.0.0.102/1234
         53.下载github 文件夹，直接复制文件夹地址到 https://minhaskamal.github.io/DownGit/#/home?url=https:%2F%2Fgithub.com%2Ffeathericons%2Ffeather%2Ftree%2Fmaster%2Ficons
+   		54只下载，不安装 apt-get install --download-only  XXXXX，存放在 下载包存放路径：/var/cache/apt/archives/
