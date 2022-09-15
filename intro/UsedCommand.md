@@ -81,5 +81,12 @@
 		lsof -i -U：显示所有打开的端口和UNIX domain文件
 	52 通过UDP向指定IP（10.0.0.102）端口（1234）发送数据：echo “hello” > /dev/udp/10.0.0.102/1234
         53.下载github 文件夹，直接复制文件夹地址到 https://minhaskamal.github.io/DownGit/#/home?url=https:%2F%2Fgithub.com%2Ffeathericons%2Ffeather%2Ftree%2Fmaster%2Ficons
-   		54只下载，不安装 apt-get install --download-only  XXXXX，存放在 下载包存放路径：/var/cache/apt/archives/
-		55.阻止apt清理缓存的方法是：echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' > /etc/apt/apt.conf.d/01keep-debs
+   	54只下载，不安装 apt-get install --download-only  XXXXX，存放在 下载包存放路径：/var/cache/apt/archives/
+	55.阻止apt清理缓存的方法是：echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' > /etc/apt/apt.conf.d/01keep-debs
+    53.下载github 文件夹，直接复制文件夹地址到 https://minhaskamal.github.io/DownGit/#/home?url=https:%2F%2Fgithub.com%2Ffeathericons%2Ffeather%2Ftree%2Fmaster%2Ficons
+    54只下载，不安装 apt-get install --download-only  XXXXX，存放在 下载包存放路径：/var/cache/apt/archives/
+    55.阻止apt清理缓存的方法是：echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' > /etc/apt/apt.conf.d/01keep-debs
+    56.linux查看做了硬件raid的物理信息，通过megacli命令看比如：MegaCli -PDList -aAll 
+    57.麒麟系统，查看操作系统是sp几，cat /etc/*release
+    58.麒麟4.0.2-arm架构源地址：http://archive.kylinos.cn/kylin/KYLIN-ALL
+    59.麒麟v10地址，arm架构：http://archive2.kylinos.cn/rpm/kylin/Library/custom/kylin-server/KY10-GFB-aarch64/
