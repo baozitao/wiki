@@ -62,3 +62,8 @@ deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.1-2203-updates main restricted 
 
 #V10 SP1 2203 HWE版本:
 deb http://archive.kylinos.cn/kylin/KYLIN-ALL 10.1-2203-hwe-updates main restricted universe multiverse
+
+
+
+麒麟v10版本源：
+http://archive2.kylinos.cn/deb/kylin/production/
