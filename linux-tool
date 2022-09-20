@@ -3,3 +3,5 @@ net-tools：包含arp
 runlike:
   1.apt install python3-pip
   2.pip install runlike
+whaler:
+  1.pip install whaler
