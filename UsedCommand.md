@@ -92,4 +92,4 @@
     59.麒麟v10地址，arm架构：http://archive2.kylinos.cn/rpm/kylin/Library/custom/kylin-server/KY10-GFB-aarch64/
     60.tcpdump -i eth0 -nnvv -c 10 '((udp) and (port 1234) and ((src host 200.200.200.1) and (dst host 200.200.200.2)))'
     61.tcpdump -i eth0 -nntvv -c 10 '((tcp) and (port 22) and ((dst host 200.200.200.1) or (dst host 200.200.200.2)))'
-    62.
+    62.netstat -nap查看哪些端口被哪些程序占用
