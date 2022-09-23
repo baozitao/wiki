@@ -93,3 +93,4 @@
     60.tcpdump -i eth0 -nnvv -c 10 '((udp) and (port 1234) and ((src host 200.200.200.1) and (dst host 200.200.200.2)))'
     61.tcpdump -i eth0 -nntvv -c 10 '((tcp) and (port 22) and ((dst host 200.200.200.1) or (dst host 200.200.200.2)))'
     62.netstat -nap查看哪些端口被哪些程序占用
+    63.查看本机架构：uname -m
