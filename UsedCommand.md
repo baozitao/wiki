@@ -121,3 +121,4 @@
 	-R, --relative 使用相对路径信息  如：rsync foo/bar/foo.c remote:/tmp/   则在/tmp目录下创建foo.c文件，而如果使用-R参数：rsync -R foo/bar/foo.c remote:/tmp/     则会创建文件/tmp/foo/bar/foo.c，也就是会保持完全路径信息。
 	--config=FILE 指定其他的配置文件，不使用默认的rsyncd.conf文件
 	--port=PORT 指定其他的rsync服务端口
+    65. 代理下载：export http_proxy=http://proxyAddress:port
