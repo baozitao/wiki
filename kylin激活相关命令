@@ -1,0 +1,12 @@
+
+• 激活相关命令
+• 1、kylin-activation，调出激活图形化弹窗
+• 2、kylin_activation_check，查看当前系统激活状态
+• 3、kylin-system-verify-new,8位序列号编辑命令
+• 4、kylin-system-verify，无图形界面命令行扫码激活
+• 5、kylin-verify，查看授权到期时间
+• 6、kylin_activate_ukey，ukey激活命令
+• 7、cat /etc/.kyinfo , 查看系统信息
+• 8、sudo kylin_gen_register   查看系统注册码
+• 9、cat /etc/.kyactivation   查看系统激活码
+• 10、sudo dmidecode -s system-uuid  查看机器码
