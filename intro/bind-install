@@ -1,0 +1,16 @@
+mkdir /home/bind/data
+docker run --name DNS -d --restart=always -p 3053:53/tcp -p 3053:53/udp -p 10000:10000/tcp -e WEBMIN_ENABLED=true -e ROOT_PASSWORD=99131456 -e WEBMIN_INIT_SSL_ENABLED=false -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro -v /home/bind/data:/data eafxx/bind
+http://XXXXXX:10000
+root  ROOT_PASSWORD
+
+
+
+
+1.选择servers里bind DNS Server
+2.创建主区域
+3.输入主域名（tzc）、邮箱，点击确认
+4.选择tzc，选择address。
+
+
+
+在Linux上，
