@@ -20,3 +20,7 @@ tcipdum
 eafxx/bind9
 lsof
 ```
+
+
+
+snap安装包
