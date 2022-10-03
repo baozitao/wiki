@@ -11,15 +11,16 @@ potainer
 nextcloud
 httpd 
 Ansible 
-wire shark
+wireshark-qt
 tcpdump
 ufw
 zip
-wireshark-qt
 tcipdum
 eafxx/bind9
 lsof
 kchmviewer
+openlens
+traefik
 ```
 
 
