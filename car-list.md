@@ -21,6 +21,11 @@ lsof
 kchmviewer
 openlens
 traefik
+谷歌浏览器arm版
+同步tabby配置文件
+
+
+
 ```
 
 
