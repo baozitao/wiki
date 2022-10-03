@@ -19,6 +19,7 @@ wireshark-qt
 tcipdum
 eafxx/bind9
 lsof
+kchmviewer
 ```
 
 
