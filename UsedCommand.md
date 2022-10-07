@@ -123,3 +123,4 @@
 	--port=PORT 指定其他的rsync服务端口
     65. 代理下载：export http_proxy=http://proxyAddress:port
     66.dpkg -i --print-architecture 
+	67.查看库中软件版本apt show package_name
