@@ -119,11 +119,11 @@ sudo dpkg -i *.deb
 ## **干净删除docker**
 > 删除没有删除的相关插件
 ```
-apt-get autoremove docker docker-ce docker-engine  docker.io  containerd runc  #删除docker及安装时自动安装的所有包
+apt-get autoremove docker docker-ce docker-engine  docker.io  containerd runc 
 dpkg -l | grep docker
-dpkg -l | grep ^rc|awk '{print $2}' |sudo xargs dpkg -P # 删除无用的相关的配置文件
+dpkg -l | grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 apt-get autoremove docker-ce-*
-rm -rf /etc/systemd/system/docker.service.d     #删除docker的相关配置&目录
-rm -rf /var/lib/docker  #删除docker的相关配置&目录
+rm -rf /etc/systemd/system/docker.service.d     
+rm -rf /var/lib/docker 
 docker --version
 ```

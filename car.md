@@ -118,3 +118,4 @@ tail -f agent/log/XXX
 
 docker run --name wgcloud -d -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro -p 9999:9999 -p 9998:9998 -p 9997:9997 wgcloud
 
+> apt install chromium-browser
