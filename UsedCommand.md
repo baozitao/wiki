@@ -124,3 +124,4 @@
     65. 代理下载：export http_proxy=http://proxyAddress:port
     66.dpkg -i --print-architecture 
 	67.查看库中软件版本apt show package_name
+	68.docker 拉取指定架构镜像docker pull --platform=<plartform> <image-name>:<tag>
