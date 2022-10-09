@@ -125,3 +125,10 @@
     66.dpkg -i --print-architecture 
 	67.查看库中软件版本apt show package_name
 	68.docker 拉取指定架构镜像docker pull --platform=<plartform> <image-name>:<tag>
+	69.查看系统架构的方法：
+		uname -a
+		cat /proc/cpuinfo
+		getconf LONG_BIT
+		file /bin/bash
+		cat /proc/version
+		dpkg --print-architecture
