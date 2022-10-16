@@ -9,6 +9,12 @@ cat /proc/cgroups
 开启了
 ```
 
+## docker pull 错误，有可能只是没有这个镜像
+```
+Error response from daemon: pull access denied for helloworld, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+```
+
+
 ## 随便找一个节点，安装镜像仓库
 > 运行仓库，registry_config.yml很重要，否则web界面无法访问仓库
 ```
