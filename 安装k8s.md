@@ -71,6 +71,16 @@ kk artifact export -m manifest.yaml -o kubecluster.tar.gz
 
 
 ## 管理集群
+> 查看kk 版本
+```
+kk version
+```
+> 查看kk 支持的k8s版本
+```
+kk version --show-supported-k8s
+```
+
+
 > 创建集群，并且安装操作系统依赖（需要artifact中包含目标集群中节点的操作系统依赖文件）。
 ```
 kk create cluster -f config-sample.yaml -a kubecluster.tar.gz
