@@ -49,7 +49,27 @@ nothing to commit, working tree clean
 ### 提交版本命令详解
 -   提交文件，形成版本
 ```
-- ``
+1. 提交文件并添加说明
+git commit -m "说明性文字"
+# 一定要写一个简单的说明，方便后续查找版本
+# 因为当我们的历史版本多了以后，我们自己也记不住哪个版本做了哪些修改
+
+2. 提交跟踪过的文件（可省略`git add`），不添加文字说明
+# 能帮你省一步 git add ，但也只是对修改和删除文件有效， 新文件还是要 git add，不然就是 untracked（未跟踪状态）
+git commit -a
+# 相当于：
+# git add .
+# git commit 
+
+3. 提交跟踪过的文件（可省略`git add`），并添加文字说明
+# 能帮你省一步 git add ，但也只是对修改和删除文件有效， 新文件还是要 git add，不然就是 untracked（未跟踪状态）
+git commit -am "xxx"
+# 相当于：
+# git add .
+# git commit -m "xxx"
+
+4. 查看帮助，还有许多参数有其他效果
+git commit --help
 ```
 
 ## 设置github连接
