@@ -1,0 +1,1 @@
+git@github.com:baozitao/wiki.git
