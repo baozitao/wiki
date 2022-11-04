@@ -8,3 +8,10 @@ ssh-add ~/.ssh/github.pem
 ```
 git pull origin master --allow-unrelated-histories
 ```
+
+
+## git push 遇到问题' git pull origin master --allow-unrelated-histories'
+```
+git pull origin master --allow-unrelated-histories
+```
+
