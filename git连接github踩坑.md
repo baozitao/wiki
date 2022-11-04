@@ -37,6 +37,12 @@ Changes to be committed:
         modified:   src/App.vue		# 在暂存区的文件路径将为绿色
 ```
 
+### git commit
+**历史区**：把暂存区里面的内容拿出来形成一个历史版本
+
+
+
+
 ## 设置github连接
 设置公钥私钥git config --global user.name baozitao
 git config --global user.email baozitao@gmail.com
