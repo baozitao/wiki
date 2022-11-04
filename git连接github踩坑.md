@@ -195,6 +195,11 @@ git config --global unset user.name "用户名"
 git config --global unset user.email "注册邮箱"
 ```
 
+> 对于git来说，配置文件的权重是`「仓库 > 全局 > 系统」`，即 `「local > global > system」`
+
+
+
+
 
 ## 设置github连接
 **设置公钥私钥**
