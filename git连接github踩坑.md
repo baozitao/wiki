@@ -40,7 +40,10 @@ Changes to be committed:
 ### git commit
 **历史区**：把暂存区里面的内容拿出来形成一个历史版本
 ```
-
+➜ git commit -m "feat: 完成某页面的开发" # 将暂存区的文件发版
+➜ git status 			# 再次查看，此时工作区和暂存区就干净了
+On branch cs/isiliu
+nothing to commit, working tree clean
 ```
 
 
