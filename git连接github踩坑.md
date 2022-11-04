@@ -216,12 +216,10 @@ git config --local --unset user.name
 
 
 ## 版本回退
-```
 ```text
 使用git log命令，查看分支提交历史，确认需要回退的版本
 使用git reset --hard commit_id命令，进行版本回退
 使用git push origin命令，推送至远程分支
-```
 ```
 
 # 设置github连接
