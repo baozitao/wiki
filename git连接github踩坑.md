@@ -73,15 +73,14 @@ git commit --help
 ```
 
 ## 设置github连接
+**设置公钥私钥**
 ```
-设置公钥私钥git config --global user.name baozitao
+git config --global user.name baozitao
 git config --global user.email baozitao@gmail.com
 ssh-keygen -t rsa -C baozitao@gmail.com # 一路回车设置好文件路径和文件名，不要写后缀
-```
-```
 chmod 600 ~/.ssh/github.pem
 eval `ssh-agent -s`
-ssh-add ~/.ssh/github.pem
+ssh-add ~/.ssh/github.pem```
 ```
 
 ## git push origin main 遇到‘ `fatal: refusing to merge unrelated histories`’ 问题
