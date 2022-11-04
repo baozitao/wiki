@@ -235,7 +235,10 @@ git config --global core.editor vim  ##查看默认编辑器
 git init
 git config --global user.name baozitao
 git config --global user.email baozitao@gmail.com
-git remote add git config --global core.editor vim
+git remote add origin git@github.com:baozitao/key.git
+git fetch origin git@github.com:baozitao/key.git
+git pull origin master
+
 
 ssh-keygen -t rsa -C baozitao@gmail.com # 一路回车设置好文件路径和文件名，不要写后缀
 chmod 600 ~/.ssh/github.pem
