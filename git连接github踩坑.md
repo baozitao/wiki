@@ -232,8 +232,11 @@ git config --global core.editor vim  ##查看默认编辑器
 # 设置github连接
 **设置公钥私钥**
 ```
+git init
 git config --global user.name baozitao
 git config --global user.email baozitao@gmail.com
+git remote add git config --global core.editor vim
+
 ssh-keygen -t rsa -C baozitao@gmail.com # 一路回车设置好文件路径和文件名，不要写后缀
 chmod 600 ~/.ssh/github.pem
 eval `ssh-agent -s`
