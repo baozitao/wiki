@@ -3,7 +3,7 @@
 ```
 git config --global user.name baozitao
 git config --global user.email baozitao@gmail.com
-
+ssh-keygen -t rsa -C baozitao@gmail.com # 一路回车设置好文件路径和文件名，不要写后缀
 ```
 ```
 
