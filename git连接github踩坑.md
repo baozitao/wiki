@@ -196,9 +196,12 @@ git config --global unset user.email "注册邮箱"
 ```
 
 > 对于git来说，配置文件的权重是`「仓库 > 全局 > 系统」`，即 `「local > global > system」`
-
-
-
+-   添加配置项：`--add`
+-   格式：`git config [-local | -global | -system] add section.key value`（默认是添加在`local`配置中）
+``
+```git config --add sit.name Jack
+```
+```
 
 
 ## 设置github连接
