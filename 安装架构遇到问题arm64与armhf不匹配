@@ -1,0 +1,4 @@
+package architecture (arm64) does not match system (armhf)
+
+
+dpkg --add-architecture arm64 加上即可

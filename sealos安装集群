@@ -1,0 +1,12 @@
+sealos run labring/kubernetes-docker:v1.25.0 labring/calico:v3.24.1 --masters 10.0.0.117 --masters 10.0.0.141 -p 99131456 --nodes 10.0.0.137 -p bao99131456tao
+
+sealos run labring/kubernetes-docker:v1.25.0 labring/calico:v3.24.1 \
+  -p xxx --masters 10.0.0.117 \
+  --nodes 192.168.0.52,192.168.0.156,192.168.0.7
+
+
+
+
+sealos run labring/kubernetes:v1.25.0 labring/calico:v3.24.1 \
+     --masters 10.0.0.117,10.0.0.141 \
+     --nodes 10.0.0.137 -p bao99131456tao

@@ -1,0 +1,12 @@
+nmap：扫描局域网主机及端口
+net-tools：包含arp
+runlike:
+  1.apt install python3-pip
+  2.pip install runlike
+<<<<<<< HEAD
+arp-scan：主机扫描 arp-scan -l
+=======
+whaler:
+  1.pip install whaler
+>>>>>>> a8eb40d9838670c55064e3405640b1fd9c073803
+查看网络情况16.04：nmcli dev show
