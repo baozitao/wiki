@@ -99,6 +99,7 @@ git pull
 
 
 ## 分支指令
+###分支指令
 ```
 # 查看本地分支：
 git branch
@@ -138,6 +139,11 @@ git push --delete origin oldName
 
 ```
 
+
+### 分支命名
+```
+
+```
 
 ## 设置github连接
 **设置公钥私钥**
