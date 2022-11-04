@@ -1,6 +1,8 @@
 ## 设置github连接
 > 设置公钥私钥
 ```
+git config --global user.name baozitao
+git config --global user.email baozitao@gmail.com
 
 ```
 ```
