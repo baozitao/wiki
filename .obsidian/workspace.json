@@ -65,11 +65,13 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "cde29511dec0c950",
@@ -136,7 +138,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "0d094f65402f179b",
+  "active": "92fbeb5f2967422f",
   "lastOpenFiles": [
     "Untitledsdfasdf.md"
   ]
