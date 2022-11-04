@@ -222,6 +222,12 @@ git config --local --unset user.name
 eg:git reset --hard 79cb90832ad1cfac65398008a0777e52e0be5d22
 ```
 
+## 设置默认编辑器为vim
+```
+git commite -s
+```
+
+
 # 设置github连接
 **设置公钥私钥**
 ```
