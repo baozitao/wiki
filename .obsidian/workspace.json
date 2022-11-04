@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "dgit连接github踩坑.md",
+                "file": "git连接github踩坑.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "dgit连接github踩坑.md",
+                "file": "git连接github踩坑.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "dgit连接github踩坑.md",
+                "file": "git连接github踩坑.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "dgit连接github踩坑.md"
+                "file": "git连接github踩坑.md"
               }
             }
           }
@@ -139,6 +139,6 @@
   },
   "active": "92fbeb5f2967422f",
   "lastOpenFiles": [
-    "dgit连接github踩坑.md"
+    "git连接github踩坑.md"
   ]
 }
