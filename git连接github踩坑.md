@@ -95,9 +95,48 @@ git push
 ```
 # 将本地代码和远程代码同步：(在本地仓库使用命令)
 git pull
-
 ```
 
+
+## 分支指令
+```
+# 查看本地分支：
+git branch
+
+# 查看远程分支：
+git branch -r
+
+# 更新远程分支：
+git fetch
+
+# 创建分支：
+git branch 分支名
+
+### 切换分支：（常用）
+git checkout 分支名
+
+### 切换到上个分支：（常用）
+git checkout -
+
+### 创建并切换到这个分支：（常用）
+git checkout -b 新分支名
+
+### 合并分支：（常用）
+git merge 被合并的分支 # 要先跳转到要合并其他分支的分支
+
+# 终止合并分支：
+git merge --abort
+
+# 删除分支：(不能自己删自己)
+git branch -D 要删除的分支
+
+# 本地分支重命名：
+git branch -m oldName  newName
+
+# 删除远程的旧分支：
+git push --delete origin oldName
+
+```
 
 
 ## 设置github连接
