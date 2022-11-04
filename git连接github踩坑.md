@@ -1,3 +1,7 @@
+## git 过程图
+![[Pasted image 20221104233011.png]]
+
+![[Pasted image 20221104233046.png]]
 ## git 初始化
 ```
 git init
