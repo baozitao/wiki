@@ -23,12 +23,22 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")```
 
 
+```
 
+## Git 暂存区
+### git add
+**暂存区**：把我们想要存储的内容放在暂存区，文件路径为绿色
+```
+➜ git add . #将工作区的文件添加到暂存区
+➜ git status
+On branch cs/isiliu
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   src/App.vue		# 在暂存区的文件路径将为绿色
+```
 
 ## 设置github连接
-> 设置公钥私钥
-```
-git config --global user.name baozitao
+设置公钥私钥git config --global user.name baozitao
 git config --global user.email baozitao@gmail.com
 ssh-keygen -t rsa -C baozitao@gmail.com # 一路回车设置好文件路径和文件名，不要写后缀
 ```
