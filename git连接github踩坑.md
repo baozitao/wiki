@@ -46,7 +46,11 @@ On branch cs/isiliu
 nothing to commit, working tree clean
 ```
 
-
+### 提交版本命令详解
+-   提交文件，形成版本
+```
+- ``
+```
 
 ## 设置github连接
 设置公钥私钥git config --global user.name baozitao
