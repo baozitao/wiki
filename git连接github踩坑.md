@@ -1,4 +1,9 @@
-## s
+## 设置github连接
+> 设置公钥私钥
+```
+
+```
+```
 
 ```
 chmod 600 ~/.ssh/github.pem
