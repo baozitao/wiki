@@ -207,7 +207,7 @@ git config --add sit.name Jack
 ```
 git config --local --unset user.name
 ```
-
+![[Pasted image 20221104232933.png]]
 
 
 
