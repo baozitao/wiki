@@ -12,7 +12,15 @@ git init
 
 ## ## Git 工作区
 ### git status
-**工作区**：我们书写的源码就在工作区里面，文件路径为红色
+**工作区**：我们书写的源码就在工作区里面
+```
+➜ git status
+On branch cs/isiliu
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/App.vue		# 在工作区的文件路径将为红色
+no changes added to commit (use "git add" and/or "git commit -a")```
 
 
 
