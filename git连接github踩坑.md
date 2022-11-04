@@ -2,6 +2,8 @@
 ![[Pasted image 20221104233011.png]]
 
 ![[Pasted image 20221104233046.png]]
+
+
 ## git 初始化
 ```
 git init
@@ -211,12 +213,10 @@ git config --add sit.name Jack
 ```
 git config --local --unset user.name
 ```
-![[Pasted image 20221104232933.png]]
 
 
 
-
-## 设置github连接
+# 设置github连接
 **设置公钥私钥**
 ```
 git config --global user.name baozitao
