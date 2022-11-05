@@ -1,7 +1,18 @@
 ## git 过程图
+![[basic-usage.svg]]
+上面的四条命令在工作目录、暂存目录(也叫做索引)和仓库之间复制文件。
+
+-   `git add _files_` 把当前文件放入暂存区域。
+-   `git commit` 给暂存区域生成快照并提交。
+-   `git reset -- _files_` 用来撤销最后一次`git add _files_`，你也可以用`git reset` 撤销所有暂存区域文件。
+-   `git checkout -- _files_` 把文件从暂存区域复制到工作目录，用来丢弃本地修改。
+
+也可以跳过暂存区域直接从仓库取出文件或者直接提交代码。
+![[basic-usage-2.svg]]
+## 
 
 
-## git 初始化
+git 初始化
 ```
 git init
 1. 我们必须要把我们电脑中的某一个文件夹授权给 `git`
