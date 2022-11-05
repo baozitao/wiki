@@ -317,3 +317,7 @@ ssh-add -X //对代理进行解锁
 ```
 
 ### 每次开机都要启动ssh-agent非常麻烦
+使用 Git/[SSH](https://so.csdn.net/so/search?q=SSH&spm=1001.2101.3001.7020)/SCP 之类操作的时候，一般都是用 ssh 密钥的，但是每次都要先启动 ssh-agent 才能注册密钥，挺烦的，于是尝试了一下，能不能在登陆终端的时候自动启动 ssh-agent，然后关闭的时候自动kill掉 ssh-agent。
+```
+eval $(ssh-agent -s)
+```
