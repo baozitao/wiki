@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "git连接github踩坑.md",
+                "file": "deb格式转能够在manjaro安装的格式.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "git连接github踩坑.md",
+                "file": "deb格式转能够在manjaro安装的格式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "git连接github踩坑.md",
+                "file": "deb格式转能够在manjaro安装的格式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "git连接github踩坑.md"
+                "file": "deb格式转能够在manjaro安装的格式.md"
               }
             }
           }
