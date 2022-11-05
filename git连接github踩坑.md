@@ -258,10 +258,23 @@ git pull origin master --allow-unrelated-histories
 ```
 
 ## 使用ssh-agent管理密钥
+ssh-agent是ssh代理程序，使用ssh-agent可以方面管理私钥。  
+ssh-agent主要使用在如下两个场景：  
+1.使用不同的密钥连接不同主机，每次连接都要指定私钥;  
+2.当私钥设置了密码，每次使用认证时都需要输入密码，非常麻烦。
 
+### 启动ssh-agent
 
+启动ssh-agent有两种方法：  
+```
+ssh-agent $SHELL  
+eval 'ssh-agent'
+```
 
+-   ssh-agent $SHELL  
+    这种方式会在当前shell中启动一个默认shell作为当前shell的子shell，ssh-agent程序会在子shell中运行。$SHELL变量名代表系统的默认shell，如果自己知道系统使用的是哪一种shell也可以直接指定，如ssh-agent bash,ssh-agent csh.退出当前子shell使用exit。使用pstree查看进程树。
 
-
-
-
+-   eval 'ssh-agent'  
+    这种方式不会启动一个子shell，而是直接启动一个ssh-agent进程，使用ssh-agent -k来关闭代理。如果退出了当前bash，再使用ssh-agent -k无法关闭代理。当然，第一种方式可是可以使用ssh-agent -k来关闭代理的。
+    
+### 添加密钥
