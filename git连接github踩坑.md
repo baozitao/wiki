@@ -278,3 +278,33 @@ eval 'ssh-agent'
     这种方式不会启动一个子shell，而是直接启动一个ssh-agent进程，使用ssh-agent -k来关闭代理。如果退出了当前bash，再使用ssh-agent -k无法关闭代理。当然，第一种方式可是可以使用ssh-agent -k来关闭代理的。
     
 ### 添加密钥
+
+使用如下命令将私钥添加到代理中
+```
+ssh-add ~/.ssh/id_rsa_test
+```
+id_rsa_custom是指私钥，上述命令需要在已经启动了ssh-agent的状态下使用。
+
+### 选择对应的私钥
+这种情况是我们在创建密钥对时手动指定了密钥名称，而不是使用默认的名称。分为以下几步：
+-   ssh-agent bash  
+    启动代理程序
+    
+-   ssh-add ~/.ssh/id_rsa_test  
+    添加密钥
+    
+-   ssh root@192.168.0.45  
+    连接远程机器
+### 免去输入私钥密码
+
+这种情况是我们在创建密钥对时指定了密钥的密码，解决过程分为几步。
+-   ssh-agent bash  
+    启动代理程序
+    
+-   ssh-add ~/.ssh/id_rsa_test  
+    将密钥加入代理，此时会提示输入密钥的密码
+    
+-   ssh -i ~/.ssh/id_rsa_test root@192.168.0.45  
+    连接远程机器
+### 相关命令
+
