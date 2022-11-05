@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "deb格式转能够在manjaro安装的格式.md",
+                "file": "git连接github踩坑.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "deb格式转能够在manjaro安装的格式.md",
+                "file": "git连接github踩坑.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "deb格式转能够在manjaro安装的格式.md",
+                "file": "git连接github踩坑.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "deb格式转能够在manjaro安装的格式.md"
+                "file": "git连接github踩坑.md"
               }
             }
           }
@@ -138,8 +138,8 @@
   },
   "active": "514afb771289c04b",
   "lastOpenFiles": [
-    "git连接github踩坑.md",
     "deb格式转能够在manjaro安装的格式.md",
+    "git连接github踩坑.md",
     "arm64-tabby-install.md",
     "car-list.md",
     "docker-netdata.md",
