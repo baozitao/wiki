@@ -4,35 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "0cbbfc025ecfaed8",
+        "id": "f503053b4734425e",
         "type": "tabs",
         "children": [
           {
-            "id": "92fbeb5f2967422f",
+            "id": "514afb771289c04b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "git连接github踩坑.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "28fc665506c04207",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "deb格式转能够在manjaro安装的格式.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "deb格式转能够在manjaro安装的格式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "deb格式转能够在manjaro安装的格式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "deb格式转能够在manjaro安装的格式.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -149,9 +128,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "28fc665506c04207",
+  "active": "514afb771289c04b",
   "lastOpenFiles": [
     "git连接github踩坑.md",
+    "deb格式转能够在manjaro安装的格式.md",
     "arm64-tabby-install.md",
     "car-list.md",
     "docker-netdata.md",
