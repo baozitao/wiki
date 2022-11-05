@@ -321,3 +321,5 @@ ssh-add -X //对代理进行解锁
 ```
 eval $(ssh-agent -s)
 ```
+
+test
