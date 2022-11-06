@@ -4,35 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "f503053b4734425e",
+        "id": "e06d8ab258f3dd80",
         "type": "tabs",
         "children": [
           {
-            "id": "514afb771289c04b",
+            "id": "b4a5ce09e3141ba5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "git连接github踩坑.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b40fe3297e9f41cd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "安装过程记录.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "安装过程记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "安装过程记录.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "安装过程记录.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -149,13 +128,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b40fe3297e9f41cd",
+  "active": "b4a5ce09e3141ba5",
   "lastOpenFiles": [
-    "git连接github踩坑.md",
-    "deb格式转能够在manjaro安装的格式.md",
     "arm64-tabby-install.md",
+    "git连接github踩坑.md",
+    "car.md",
     "car-list.md",
-    "docker-netdata.md",
-    "car.md"
+    "conventions.svg",
+    "basic-usage-2.svg",
+    "basic-usage.svg",
+    "安装过程记录.md",
+    "deb格式转能够在manjaro安装的格式.md",
+    "docker-netdata.md"
   ]
 }
