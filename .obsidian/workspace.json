@@ -11,11 +11,28 @@
             "id": "b4a5ce09e3141ba5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "arm64-tabby-install.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0bb9a52ce236ed0a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "manjaro/Untitled.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -44,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "manja",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -81,6 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "manjaro/Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "manjaro/Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +137,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "manjaro/Untitled.md"
+              }
             }
           }
         ]
@@ -128,9 +149,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b4a5ce09e3141ba5",
+  "active": "0bb9a52ce236ed0a",
   "lastOpenFiles": [
     "arm64-tabby-install.md",
+    "manjaro/deb格式转能够在manjaro安装的格式.md",
     "git连接github踩坑.md",
     "car.md",
     "car-list.md",
@@ -138,7 +160,6 @@
     "basic-usage-2.svg",
     "basic-usage.svg",
     "安装过程记录.md",
-    "deb格式转能够在manjaro安装的格式.md",
     "docker-netdata.md"
   ]
 }
