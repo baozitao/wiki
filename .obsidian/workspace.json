@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Chrome Clippings.md",
+                "file": "recourd-web/Chrome Clippings.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Chrome Clippings.md",
+                "file": "recourd-web/Chrome Clippings.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Chrome Clippings.md",
+                "file": "recourd-web/Chrome Clippings.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Chrome Clippings.md"
+                "file": "recourd-web/Chrome Clippings.md"
               }
             }
           }
@@ -151,6 +151,7 @@
   },
   "active": "0bb9a52ce236ed0a",
   "lastOpenFiles": [
+    "Chrome Clippings.md",
     "manjaro/manjaro 安装过程要点记录.md",
     "arm64-tabby-install.md",
     "manjaro/deb格式转能够在manjaro安装的格式.md",
@@ -159,7 +160,6 @@
     "car-list.md",
     "conventions.svg",
     "basic-usage-2.svg",
-    "basic-usage.svg",
-    "安装过程记录.md"
+    "basic-usage.svg"
   ]
 }
