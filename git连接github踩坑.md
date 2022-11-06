@@ -241,8 +241,8 @@ eg:git reset --hard 79cb90832ad1cfac65398008a0777e52e0be5d22
 
 ## 设置默认编辑器为vim
 ```
-git config --global core.editor vim  ##设置默认编辑器
-git config --global core.editor vim  ##查看默认编辑器
+git config --global core.editor nvim  ##设置默认编辑器
+git config --global core.editor nvim  ##查看默认编辑器
 ```
 
 
