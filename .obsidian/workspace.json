@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "recourd-web/Chrome Clippings.md",
+                "file": "recourd-web/Obsidian Clipper-2022-11-06.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "recourd-web/Chrome Clippings.md",
+                "file": "recourd-web/Obsidian Clipper-2022-11-06.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "recourd-web/Chrome Clippings.md",
+                "file": "recourd-web/Obsidian Clipper-2022-11-06.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "recourd-web/Chrome Clippings.md"
+                "file": "recourd-web/Obsidian Clipper-2022-11-06.md"
               }
             }
           }
@@ -151,6 +151,7 @@
   },
   "active": "0bb9a52ce236ed0a",
   "lastOpenFiles": [
+    "recourd-web/Chrome Clippings.md",
     "Chrome Clippings.md",
     "manjaro/manjaro 安装过程要点记录.md",
     "arm64-tabby-install.md",
@@ -159,7 +160,6 @@
     "car.md",
     "car-list.md",
     "conventions.svg",
-    "basic-usage-2.svg",
-    "basic-usage.svg"
+    "basic-usage-2.svg"
   ]
 }
