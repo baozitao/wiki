@@ -6,6 +6,7 @@ chmod 600 ~/.ssh/github
 eval `ssh-agent -s`
 ssh-add ~/.ssh/github
 
+aa
 
 git init
 ### 这两个不一定需要,因为在私钥中写了，但是如果不只是在terminal中使用，就需要全局定义，一边其他app获取 #################
