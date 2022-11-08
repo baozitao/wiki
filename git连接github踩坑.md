@@ -12,6 +12,7 @@ git config --global user.name baozitao
 git config --global user.email baozitao@gmail.com
 ###################################
 git remote add origin git@github.com:baozitao/key.git
+git git branch -m 
 git fetch origin git@github.com:baozitao/key.git
 git pull origin master
 ```
