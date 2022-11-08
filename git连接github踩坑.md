@@ -17,7 +17,7 @@ git fetch origin git@github.com:baozitao/key.git
 git pull origin master
 ```
 
-通过obsidian连接时，先pull后，再建立obsidian 的 
+通过obsidian连接时，先pull后，再建立obsidian 的 vault即可
 
 
 ##  在/etc/profile中加入如下命令自动启动ssh-agent,并填加密钥
