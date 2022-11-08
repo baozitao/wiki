@@ -17,6 +17,12 @@ git fetch origin git@github.com:baozitao/key.git
 git pull origin master
 ```
 
+## /etc/profile中加入如下命令自动启动
+```
+eval "$(ssh-agent)"
+ssh-add ~/.ssh/github
+```
+
 ## 设置默认编辑器为vim
 ```
 git config --global core.editor nvim  ##设置默认编辑器
@@ -339,9 +345,3 @@ ssh-add -D //清空所有私钥
 ssh-add -x //对代理进行加锁，加锁后仍然需要指定密钥或者密码等 
 ssh-add -X //对代理进行解锁
 ```
-## /etc/profile中加入如下ming l
-```
-eval "$(ssh-agent)"
-```
-
-test
