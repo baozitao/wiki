@@ -6,8 +6,6 @@ chmod 600 ~/.ssh/github
 eval `ssh-agent -s`
 ssh-add ~/.ssh/github
 
-aa
-
 git init
 ### 这两个不一定需要,因为在私钥中写了，但是如果不只是在terminal中使用，就需要全局定义，一边其他app获取 #################
 git config --global user.name baozitao
@@ -18,7 +16,7 @@ git fetch origin git@github.com:baozitao/key.git
 git pull origin master
 ```
 
-## /etc/profile中加入如下命令自动启动
+##  在/etc/profile中加入如下命令自动启动
 ```
 eval "$(ssh-agent)"
 ssh-add ~/.ssh/github
