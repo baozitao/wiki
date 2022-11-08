@@ -1,3 +1,29 @@
+# 设置github连接
+**设置公钥私钥**
+```
+ssh-keygen -t rsa -C baozitao@gmail.com # 一路回车设置好撕咬路径和文件名，不要写后缀
+chmod 600 ~/.ssh/github
+eval `ssh-agent -s`
+ssh-add ~/.ssh/github
+
+
+git init
+### 这两个不一定需要,因为在私钥中写了，但是如果不只是在terminal中使用，就需要全局定义，一边其他app获取 #################
+git config --global user.name baozitao
+git config --global user.email baozitao@gmail.com
+###################################
+git remote add origin git@github.com:baozitao/key.git
+git fetch origin git@github.com:baozitao/key.git
+git pull origin master
+```
+
+## 设置默认编辑器为vim
+```
+git config --global core.editor nvim  ##设置默认编辑器
+git config --global core.editor nvim  ##查看默认编辑器
+```
+
+
 ## git 过程图
 ![[basic-usage.svg]]
 上面的四条命令在工作目录、暂存目录(也叫做索引)和仓库之间复制文件。
@@ -239,29 +265,10 @@ git config --local --unset user.name
 eg:git reset --hard 79cb90832ad1cfac65398008a0777e52e0be5d22
 ```
 
-## 设置默认编辑器为vim
-```
-git config --global core.editor nvim  ##设置默认编辑器
-git config --global core.editor nvim  ##查看默认编辑器
-```
 
 
-# 设置github连接
-**设置公钥私钥**
-```
-git init
-git config --global user.name baozitao
-git config --global user.email baozitao@gmail.com
-git remote add origin git@github.com:baozitao/key.git
-git fetch origin git@github.com:baozitao/key.git
-git pull origin master
 
 
-ssh-keygen -t rsa -C baozitao@gmail.com # 一路回车设置好文件路径和文件名，不要写后缀
-chmod 600 ~/.ssh/github.pem
-eval `ssh-agent -s`
-ssh-add ~/.ssh/github.pem```
-```
 
 ## git push origin main 遇到‘ fatal: refusing to merge unrelated histories问题
 ```
