@@ -16,7 +16,7 @@ git fetch origin git@github.com:baozitao/key.git
 git pull origin master
 ```
 
-##  在/etc/profile中加入如下命令自动启动
+##  在/etc/profile中加入如下命令自动启动ssh-agent,并填加密钥
 ```
 eval "$(ssh-agent)"
 ssh-add ~/.ssh/github
