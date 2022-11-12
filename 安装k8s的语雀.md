@@ -169,15 +169,11 @@ kubeadm config images pull --config kubeadm.conf
 kubeadm config images list
 ```
 
+>生成脚本文件
+```
+sudo tee ./images.sh <<-'EOF'
 
-使用kubeadm config images pull可以直接拉取所需镜像。
-kubeadm config images list and kubeadm config images pull 
-can be used to list and pull the images that kubeadm requires.
-
-搞文件：sudo tee ./images.sh <<-'EOF'
-
-文件内容：
-
+## yi xia
 #!/bin/bash
 images=(
     k8s.gcr.io/kube-apiserver:v1.23.5
@@ -194,6 +190,8 @@ for imageName in ${images[@]} ; do
     docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/$imageName k8s.gcr.io/$imageName
 done
 EOF
+```
+
 
 chmod +x ./images.sh && ./images.sh
 ```
