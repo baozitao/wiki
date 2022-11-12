@@ -94,8 +94,6 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 ## 配置 Docker daemon，设置cgroupdriver为systemd
 ```
-
-```
 vim /etc/docker/daemon.json
 
 {
@@ -108,6 +106,8 @@ vim /etc/docker/daemon.json
   "insecure-registries": ["10.0.0.231:8082","10.0.0.231:8083"],
   "registry-mirrors": ["http://10.0.0.231:8083"]
 }
+```
+
 
 ## 重启 docker 后台服务
 
@@ -121,16 +121,21 @@ systemctl restart kubelet
 ## 下载k8s镜像
 
 ### 查看需要哪些镜像
-
+```
 kubeadm config images list
+```
+
 
 ### 修改拉取镜像的仓库
 
+```
 kubeadm config print init-defaults > kubeadm.conf
 
 vim kubeadm.conf
-# 修改 imageRepository: k8s.gcr.io 为 registry.cn-beijing.aliyuncs.com/imcto
+修改 imageRepository: k8s.gcr.io 为 registry.cn-beijing.aliyuncs.com/imcto
 imageRepository: registry.cn-beijing.aliyuncs.com
+```
+
 # 修改kubernetes版本kubernetesVersion: v1.23.0
 # 改为kubernetesVersion: v1.23.0
 kubernetesVersion: v1.23.0
