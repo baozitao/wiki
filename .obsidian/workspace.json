@@ -25,14 +25,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "git连接github踩坑.md",
+                "file": "安装k8s.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ea781e57026d99d2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "安装k8s的语雀.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -98,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "git连接github踩坑.md",
+                "file": "安装k8s的语雀.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "git连接github踩坑.md",
+                "file": "安装k8s的语雀.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "git连接github踩坑.md"
+                "file": "安装k8s的语雀.md"
               }
             }
           }
@@ -149,17 +161,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "0bb9a52ce236ed0a",
+  "active": "ea781e57026d99d2",
   "lastOpenFiles": [
+    "安装k8s.md",
+    "git连接github踩坑.md",
     "recourd-web/Obsidian Clipper-2022-11-06.md",
     "recourd-web/Chrome Clippings.md",
     "Chrome Clippings.md",
     "manjaro/manjaro 安装过程要点记录.md",
     "arm64-tabby-install.md",
     "manjaro/deb格式转能够在manjaro安装的格式.md",
-    "git连接github踩坑.md",
     "car.md",
-    "car-list.md",
-    "conventions.svg"
+    "car-list.md"
   ]
 }
