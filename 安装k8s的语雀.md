@@ -214,7 +214,7 @@ docker pull k8s.gcr.io/coredns/coredns:v1.8.6
 ```
 docker save $(docker images | grep -v REPOSITORY | awk 'BEGIN{OFS=":";ORS=" "}{print $1,$2}') -o haha.tar
 ```
-
+- 
 
 ## 各个节点设置主机名
 
