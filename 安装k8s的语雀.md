@@ -210,8 +210,11 @@ docker pull k8s.gcr.io/etcd:3.5.1-0
 docker pull k8s.gcr.io/coredns/coredns:v1.8.6
 ```
 
-### 如果需要可以i z
+### 如果需要可以保存
+```
 docker save $(docker images | grep -v REPOSITORY | awk 'BEGIN{OFS=":";ORS=" "}{print $1,$2}') -o haha.tar
+```
+
 
 ## 各个节点设置主机名
 
