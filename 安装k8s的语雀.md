@@ -12,10 +12,10 @@ systemctl restart kubelet
 
 ## 关闭防火墙
 ```
-
-```
 ufw disable
 ufw status
+```
+
 
 ## 关闭selinux
 
@@ -23,16 +23,16 @@ ufw status
 
 3.设置所有流量均通过三层转发；
 
+```
 cat > /etc/sysctl.d/k8s.conf << EOF
-
 net.bridge.bridge-nf-call-ip6tables = 1
-
 net.bridge.bridge-nf-call-iptables = 1
-
 EOF
+```
+
 
 4.改主机名
-
+```
 hostnamectl set-hostname master
 timedatectl set-timezone Asia/Shanghai
 sudo modprobe br_netfilter
@@ -41,12 +41,16 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 systemctl enable docker
 systemctl start docker
 sudo apt-get install -y apt-transport-https ca-certificates curl
+```
+
 
 ## 9.更新 apt 包索引并安装使用 Kubernetes apt 仓库所需要的包
-
+```
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
+```
+
 
 ## 上面的步骤可以改为国内源
 
