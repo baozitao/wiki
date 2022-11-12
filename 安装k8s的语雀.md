@@ -125,8 +125,8 @@ systemctl restart kubelet
 ```
 kubeadm config images list
 ```
->修改拉取镜像的仓库
 
+>修改拉取镜像的仓库
 ```
 kubeadm config print init-defaults > kubeadm.conf
 
@@ -141,9 +141,7 @@ imageRepository: registry.cn-beijing.aliyuncs.com
 kubernetesVersion: v1.23.0
 ```
 
-
-### 看看修改成功没有
-
+>看看修改成功没有
 ```
 kubeadm config images list --config kubeadm.conf
 
@@ -158,16 +156,19 @@ registry.cn-beijing.aliyuncs.com/imcto/etcd:3.2.24
 registry.cn-beijing.aliyuncs.com/imcto/coredns:1.2.6
 ```
 
-### 拉取镜像
+>拉取镜像
 ```
 kubeadm config images pull --config kubeadm.conf
 ```
 
 
-> 或者自己手动拉取
+###  方法二：通过脚本文件拉取
+
+>运行以下命令，获取对应的版本号
 ```
-运行以下命令，获取对应的版本号
 kubeadm config images list
+```
+
 
 使用kubeadm config images pull可以直接拉取所需镜像。
 kubeadm config images list and kubeadm config images pull 
