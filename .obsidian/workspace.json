@@ -73,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#关闭selinux",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -90,12 +90,12 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "cde29511dec0c950",
@@ -162,7 +162,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "ea781e57026d99d2",
+  "active": "f4b52d7e7e893a49",
   "lastOpenFiles": [
     "安装k8s.md",
     "git连接github踩坑.md",
