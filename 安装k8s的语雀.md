@@ -1,19 +1,19 @@
 ## 安装k8s
 
 ## 关闭交换分区
-
+```
 swapoff -a
-
 cp -p /etc/fstab /etc/fstab.bak$(date '+%Y%m%d%H%M%S')
-
 sed -i "s/\/dev\/mapper\/centos-swap/\#\/dev\/mapper\/centos-swap/g" /etc/fstab
-
 systemctl daemon-reload
-
 systemctl restart kubelet
+```
+
 
 ## 关闭防火墙
+```
 
+```
 ufw disable
 ufw status
 
