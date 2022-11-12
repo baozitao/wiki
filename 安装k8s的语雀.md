@@ -120,13 +120,12 @@ systemctl restart kubelet
 
 ## 下载k8s镜像
 
-### 查看需要哪些镜像
+### 方法一：通过k8s配置文件修改，拉取
+>查看需要哪些镜像
 ```
 kubeadm config images list
 ```
-
-
-### 修改拉取镜像的仓库
+>修改拉取镜像的仓库
 
 ```
 kubeadm config print init-defaults > kubeadm.conf
@@ -165,9 +164,7 @@ kubeadm config images pull --config kubeadm.conf
 ```
 
 
-### 或者自己手动拉取
-```
-
+> 或者自己手动拉取
 ```
 运行以下命令，获取对应的版本号
 kubeadm config images list
@@ -175,8 +172,6 @@ kubeadm config images list
 使用kubeadm config images pull可以直接拉取所需镜像。
 kubeadm config images list and kubeadm config images pull 
 can be used to list and pull the images that kubeadm requires.
-
-
 
 搞文件：sudo tee ./images.sh <<-'EOF'
 
@@ -200,6 +195,8 @@ done
 EOF
 
 chmod +x ./images.sh && ./images.sh
+```
+
 
 
 或者直接：
