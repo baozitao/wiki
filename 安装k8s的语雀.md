@@ -143,9 +143,13 @@ kubernetesVersion: v1.23.0
 ```
 
 
-### 修改拉取镜像的仓库
+### 看看修改成功没有
 
-$ kubeadm config images list --config kubeadm.conf
+```
+kubeadm config images list --config kubeadm.conf
+
+
+##输出应该是这样
 registry.cn-beijing.aliyuncs.com/imcto/kube-apiserver:v1.13.1
 registry.cn-beijing.aliyuncs.com/imcto/kube-controller-manager:v1.13.1
 registry.cn-beijing.aliyuncs.com/imcto/kube-scheduler:v1.13.1
@@ -153,13 +157,18 @@ registry.cn-beijing.aliyuncs.com/imcto/kube-proxy:v1.13.1
 registry.cn-beijing.aliyuncs.com/imcto/pause:3.1
 registry.cn-beijing.aliyuncs.com/imcto/etcd:3.2.24
 registry.cn-beijing.aliyuncs.com/imcto/coredns:1.2.6
+```
 
+### 拉取镜像
+```
 kubeadm config images pull --config kubeadm.conf
+```
 
-  
 
 ### 或者自己手动拉取
+```
 
+```
 运行以下命令，获取对应的版本号
 kubeadm config images list
 
