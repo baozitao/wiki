@@ -173,7 +173,7 @@ kubeadm config images list
 ```
 sudo tee ./images.sh <<-'EOF'
 
-## yi xia
+## 以下是脚本文件内容
 #!/bin/bash
 images=(
     k8s.gcr.io/kube-apiserver:v1.23.5
@@ -192,13 +192,15 @@ done
 EOF
 ```
 
-
+> 修改权限，并拉取
+```
 chmod +x ./images.sh && ./images.sh
 ```
 
 
 
-或者直接：
+方法三:直接手动整
+```
 docker pull k8s.gcr.io/kube-apiserver:v1.23.5
 docker pull k8s.gcr.io/kube-controller-manager:v1.23.5
 docker pull k8s.gcr.io/kube-scheduler:v1.23.5
@@ -206,7 +208,9 @@ docker pull k8s.gcr.io/kube-proxy:v1.23.5
 docker pull k8s.gcr.io/pause:3.6
 docker pull k8s.gcr.io/etcd:3.5.1-0
 docker pull k8s.gcr.io/coredns/coredns:v1.8.6
+```
 
+### 如果需要可以i z
 docker save $(docker images | grep -v REPOSITORY | awk 'BEGIN{OFS=":";ORS=" "}{print $1,$2}') -o haha.tar
 
 ## 各个节点设置主机名
