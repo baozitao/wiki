@@ -17,11 +17,10 @@ ufw status
 ```
 
 
-## 关闭selinux
+>关闭selinux
 
-2.设置时间，三个机器同步，
-
-3.设置所有流量均通过三层转发；
+>设置时间，三个机器同步，
+>设置所有流量均通过三层转发；
 
 ```
 cat > /etc/sysctl.d/k8s.conf << EOF
@@ -31,7 +30,7 @@ EOF
 ```
 
 
-4.改主机名
+>改主机名
 ```
 hostnamectl set-hostname master
 timedatectl set-timezone Asia/Shanghai
@@ -44,7 +43,7 @@ sudo apt-get install -y apt-transport-https ca-certificates curl
 ```
 
 
-## 9.更新 apt 包索引并安装使用 Kubernetes apt 仓库所需要的包
+> 更新 apt 包索引并安装使用 Kubernetes apt 仓库所需要的包
 ```
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list

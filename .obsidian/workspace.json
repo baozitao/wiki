@@ -73,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "manja",
+                "query": "tag:#关闭selinux",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -90,12 +90,12 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "cde29511dec0c950",
