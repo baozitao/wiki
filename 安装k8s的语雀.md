@@ -131,14 +131,19 @@ kubeadm config images list
 ```
 kubeadm config print init-defaults > kubeadm.conf
 
+## 修改
 vim kubeadm.conf
+
+## 内容
 修改 imageRepository: k8s.gcr.io 为 registry.cn-beijing.aliyuncs.com/imcto
 imageRepository: registry.cn-beijing.aliyuncs.com
-```
-
 # 修改kubernetes版本kubernetesVersion: v1.23.0
 # 改为kubernetesVersion: v1.23.0
 kubernetesVersion: v1.23.0
+```
+
+
+### 修改拉取镜像的仓库
 
 $ kubeadm config images list --config kubeadm.conf
 registry.cn-beijing.aliyuncs.com/imcto/kube-apiserver:v1.13.1
