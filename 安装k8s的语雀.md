@@ -51,22 +51,27 @@ sudo apt-get update
 
 
 ## 上面的步骤可以改为国内源
-
+```
 curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
 EOF
 apt-get update
+```
+
+
 
 ## 如果update 失败
-
+```
 添加源之后，使用 apt-get update 命令会出现错误，原因是缺少相应的key，可以通过下面命令添加(E084DAB9 为上面报错的key后8位)。
-
 gpg --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 
 gpg --export --armor E084DAB9 | sudo apt-key add -
+```
+
+
 
 ## 可以看看版本号
-
+```
 查看最新版本
 apt show kubelet
 apt show kubeadm
@@ -82,11 +87,15 @@ apt-get install kubelet=${K8S_VERSION}
 apt-get install kubeadm=${K8S_VERSION} 
 apt-get install kubectl=${K8S_VERSION}
 sudo apt-mark hold kubelet kubeadm kubectl
+```
+
 
   
 
 ## 配置 Docker daemon，设置cgroupdriver为systemd
+```
 
+```
 vim /etc/docker/daemon.json
 
 {

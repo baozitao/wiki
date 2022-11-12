@@ -2,5 +2,6 @@
   "accentColor": "",
   "theme": "obsidian",
   "cssTheme": "Typewriter",
-  "baseFontSize": 15
+  "baseFontSize": 15,
+  "monospaceFontFamily": "Droid Sans Mono"
 }
