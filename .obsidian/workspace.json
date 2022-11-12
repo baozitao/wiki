@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "arm64-tabby-install.md",
+                "file": "git连接github踩坑.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,8 +43,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -111,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "arm64-tabby-install.md",
+                "file": "git连接github踩坑.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "arm64-tabby-install.md",
+                "file": "git连接github踩坑.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "arm64-tabby-install.md"
+                "file": "git连接github踩坑.md"
               }
             }
           }
@@ -162,15 +161,15 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "f4b52d7e7e893a49",
+  "active": "b4a5ce09e3141ba5",
   "lastOpenFiles": [
+    "arm64-tabby-install.md",
     "安装k8s.md",
     "git连接github踩坑.md",
     "recourd-web/Obsidian Clipper-2022-11-06.md",
     "recourd-web/Chrome Clippings.md",
     "Chrome Clippings.md",
     "manjaro/manjaro 安装过程要点记录.md",
-    "arm64-tabby-install.md",
     "manjaro/deb格式转能够在manjaro安装的格式.md",
     "car.md",
     "car-list.md"
