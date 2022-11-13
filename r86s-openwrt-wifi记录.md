@@ -60,4 +60,4 @@ meta
 即可自动识别更新
 
 chmod 777 * /etc/openclash/core/
-让后
+然后上传yaml配置文件，即可上网。
