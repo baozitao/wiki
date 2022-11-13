@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "git连接github踩坑.md",
+                "file": "Chrome Clippings.md",
                 "mode": "source",
                 "source": false
               }
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "git连接github踩坑.md",
+                "file": "Chrome Clippings.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "git连接github踩坑.md",
+                "file": "Chrome Clippings.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "git连接github踩坑.md"
+                "file": "Chrome Clippings.md"
               }
             }
           }
@@ -162,9 +162,9 @@
   },
   "active": "b4a5ce09e3141ba5",
   "lastOpenFiles": [
+    "git连接github踩坑.md",
     "arm64-tabby-install.md",
     "安装k8s.md",
-    "git连接github踩坑.md",
     "recourd-web/Obsidian Clipper-2022-11-06.md",
     "recourd-web/Chrome Clippings.md",
     "Chrome Clippings.md",
