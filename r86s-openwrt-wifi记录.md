@@ -53,4 +53,11 @@ opkg install luci-app-openclash_0.45.70-beta_all.ipk
 clash 
 tun
 meta
-可以在线装，如果连不上，可以去github下载包，分别解压到
+可以在线装，如果连不上，可以去github下载包，分别解压为
+/etc/openclash/core/clash
+/etc/openclash/core/clash_tun
+/etc/openclash/core/clash_meta
+即可自动识别更新
+
+chmod 777 * /etc/openclash/core/
+让后
