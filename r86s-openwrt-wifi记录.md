@@ -11,7 +11,9 @@ dd if=/dev/sda of=/dev/mmcblk0 bs=1M count=600 然后回车确定(不要忽略�
 
 
 
-## 修改
+## 修改IP配置
+
+
 
 
 opkg update
