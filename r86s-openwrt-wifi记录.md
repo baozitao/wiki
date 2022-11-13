@@ -49,3 +49,8 @@ opkg install kmod-tun --force-overwrite
 opkg install luci-app-openclash_0.45.70-beta_all.ipk
 --force-overwrite
 
+安装openclash里的版本更新，一共三个：
+clash 
+tun
+meta
+可以在线装，如果连不上，可以去github下载包，分别解压到
