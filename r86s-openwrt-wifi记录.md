@@ -1,4 +1,19 @@
 
+##烧写mmc
+1、可以用Rufus软件将下载的IMG写入到一个空白的U盘，一定要使用DD模式
+2、 插入R86S，开机按F7选择U盘启动
+3、启动后直接激活控制台。开始写入命令。
+4、输入
+dd if=/dev/sda of=/dev/mmcblk0 bs=1M count=600 然后回车确定(不要忽略空格)
+4.1这个地方的count=600 需要根据img大小来定。如果是500多M那就600，600多M那就700
+5、上面完成后还需要修复分区表。fdisk /dev/mmcblk0 然后会显示红字。 然后w 回车退出就好了。
+6、安装完成。必须要拔掉之前的U盘。否则可能配置会写错磁盘。
+
+
+
+## 修改
+
+
 opkg update
 opkg remove luci-app-openclash
 uname -m
