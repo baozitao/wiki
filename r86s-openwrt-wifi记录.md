@@ -61,3 +61,6 @@ meta
 
 chmod 777 * /etc/openclash/core/
 然后上传yaml配置文件，即可上网。
+
+
+#给还需要把lan口的dhcp,默认网关和dns都设置好，才行。
