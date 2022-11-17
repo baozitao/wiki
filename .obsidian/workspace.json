@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "openwrt旁路由配置，还行.md",
+                "file": "home.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "ma",
+                "query": "markdown",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "openwrt旁路由配置，还行.md",
+                "file": "home.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "openwrt旁路由配置，还行.md",
+                "file": "home.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -175,7 +175,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "openwrt旁路由配置，还行.md"
+                "file": "home.md"
               }
             }
           }
@@ -186,8 +186,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "4714442ff5b8e1a5",
+  "active": "390f7a6a556c26f9",
   "lastOpenFiles": [
+    "README.md",
+    "openwrt旁路由配置，还行.md",
     "car-list.md",
     "Chrome Clippings.md",
     "Pasted image 20221104233046.png",
@@ -195,8 +197,6 @@
     "r86s-openwrt-wifi记录.md",
     "git连接github踩坑.md",
     "arm64-tabby-install.md",
-    "安装k8s.md",
-    "recourd-web/Obsidian Clipper-2022-11-06.md",
-    "recourd-web/Chrome Clippings.md"
+    "安装k8s.md"
   ]
 }
