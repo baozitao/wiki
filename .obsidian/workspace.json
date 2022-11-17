@@ -97,7 +97,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "ma",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -114,7 +114,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -185,7 +186,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "390f7a6a556c26f9",
+  "active": "4714442ff5b8e1a5",
   "lastOpenFiles": [
     "car-list.md",
     "Chrome Clippings.md",
