@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Chrome Clippings.md",
+                "file": "car.md",
                 "mode": "source",
                 "source": false
               }
@@ -67,8 +67,7 @@
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -97,7 +96,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "markdown",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -114,8 +113,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -135,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "home.md",
+                "file": "car.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "home.md",
+                "file": "car.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -175,7 +173,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "home.md"
+                "file": "car.md"
               }
             }
           }
@@ -186,17 +184,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "390f7a6a556c26f9",
+  "active": "b4a5ce09e3141ba5",
   "lastOpenFiles": [
+    "car-list.md",
+    "car.md",
+    "basic-usage-2.svg",
+    "basic-usage.svg",
+    "Chrome Clippings.md",
     "README.md",
     "openwrt旁路由配置，还行.md",
-    "car-list.md",
-    "Chrome Clippings.md",
     "Pasted image 20221104233046.png",
     "Pasted image 20221104232933.png",
-    "r86s-openwrt-wifi记录.md",
-    "git连接github踩坑.md",
-    "arm64-tabby-install.md",
-    "安装k8s.md"
+    "r86s-openwrt-wifi记录.md"
   ]
 }
