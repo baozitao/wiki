@@ -1,4 +1,4 @@
-# docker 中运行 openwrt
+# docker 中运行 openwrt1
 
 > 思路利用 macvlan 方式创建虚拟接口进行配置。有感于来自恩山 betterman 及 rightwifi2017 两位大佬斐讯 N1 的玩法，也获得两位大佬的帮助，在此感谢两位大佬。由于 N1 为单网卡，所以配置只能为单臂路由，本案为双网卡 opewnrt机器拥有双网卡: enp1s0 及 enp3s0 ，本案将 enp3s0 用作 LAN 口，enp1s0 用作 WAN 口。
 
