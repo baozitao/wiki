@@ -1,0 +1,15 @@
+资源控制方面：
+1.k8s需要使用cgroup控制pod的资源限制、监控等功能：
+      比如：树莓派就需要在bootcmd.txt文件中增加cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 来开启cgroups ;
+2.cgroup的使用有两种驱动:
+    systemd
+    cgroupfs
+    这里注意，kubelet默认使用group2fs，而docker默认使用了systemd,需要统一
+
+
+
+网络方面：
+1.本机可以运行多个pod,pod的地址是本机私网地址，本机以外的设备需要和本机pods通信，就需要通过物理网卡转发到pods的虚拟网卡，因此需要开启linux的 ipv4、ipv6流量转发
+                   cat /proc/sys/net/ipv4/ip_forward =1 就是这个作用 
+2.Linux有一个机制，三层数据转发会记录，等数据回来以后，交给对应程序，这个记录就是在conntrack 表中记录的，那么问题来了，当本机pod访问其他node的pod时，进行了contrack表记录，但是本机pods之间进行访问时，出门包走了记录表，返回包却直接走二层，二层默认不进行记录表销毁，此时就会出现访问错误，因此，需要启用 bridge-nf-call-iptables 这个内核参数 (置为 1)，表示 bridge 设备在二层转发时也去调用 iptables 配置的三层规则 (包含 conntrack)
+                     net.bridge.bridge-nf-call-iptables=1
