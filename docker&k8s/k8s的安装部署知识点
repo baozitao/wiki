@@ -13,3 +13,9 @@
                    cat /proc/sys/net/ipv4/ip_forward =1 就是这个作用 
 2.Linux有一个机制，三层数据转发会记录，等数据回来以后，交给对应程序，这个记录就是在conntrack 表中记录的，那么问题来了，当本机pod访问其他node的pod时，进行了contrack表记录，但是本机pods之间进行访问时，出门包走了记录表，返回包却直接走二层，二层默认不进行记录表销毁，此时就会出现访问错误，因此，需要启用 bridge-nf-call-iptables 这个内核参数 (置为 1)，表示 bridge 设备在二层转发时也去调用 iptables 配置的三层规则 (包含 conntrack)
                      net.bridge.bridge-nf-call-iptables=1
+
+
+
+
+
+Disable Node Local DNS. In the kubespray/roles/kubespray-defaults/defaults/main.yaml file, set enable_nodelocaldns: false 
