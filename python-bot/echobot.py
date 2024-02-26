@@ -16,7 +16,8 @@ bot.
 """
 
 import logging
-
+import subprocess
+import json
 from telegram import ForceReply, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
@@ -45,6 +46,36 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     """Send a message when the command /help is issued."""
     await update.message.reply_text("Help!")
 
+async def lookup_number(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    result = subprocess.run(['curl', 'https://www.ipqualityscore.com/api/json/phone/2Q256k6NiskFPiM9tAIrWyV2bHMN7jEm/19548000001'], capture_output=True, text=True)
+   
+    # 获取Curl命令的输出结果
+    output = result.stdout
+    print(message) 
+    print("\n") 
+    # 解析JSON结果
+    data = json.loads(output)
+
+    # 构建消息
+    message = "Phone Check Results:\n"
+    message += f"valid: {data['message']}\n"  
+    message += f"success: {data['success']}\n"
+    message += f"formatted number: {data['formatted']}\n"  
+    message += f"local_format: {data['local_format']}\n"  
+    message += f"fraud_score: {data['fraud_score']}\n"  
+    message += f"recent_abuse: {data['recent_abuse']}\n"  
+    message += f"VOIP: {data['VOIP']}\n"  
+    message += f"prepaid: {data['prepaid']}\n"  
+    message += f"risky: {data['risky']}\n"  
+    message += f"active: {data['active']}\n"  
+    message += f"carrier: {data['carrier']}\n"  
+    message += f"line_type: {data['line_type']}\n"  
+    message += f"country: {data['country']}\n"  
+    message += f"city: {data['city']}\n"  
+    message += f"zip_code: {data['zip_code']}\n"    
+    message += f"region: {data['region']}\n"
+    print(message) 
+    await update.message.reply_text(message)
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Echo the user message."""
@@ -59,7 +90,7 @@ def main() -> None:
     # on different commands - answer in Telegram
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
-
+    application.add_handler(CommandHandler("check", lookup_number))
     # on non command i.e message - echo the message on Telegram
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
 
