@@ -7,6 +7,8 @@ Basic example for a bot that uses inline keyboards. For an in-depth explanation,
  https://github.com/python-telegram-bot/python-telegram-bot/wiki/InlineKeyboard-Example.
 """
 import logging
+import emoji
+import pytz
 import subprocess
 import json
 from datetime import datetime
@@ -71,33 +73,44 @@ async def handle_option1(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
     # 构建消息
     message = "Phone Check Results:\n"
-    message += f"valid: {data['message']}\n"  
-    message += f"success: {data['success']}\n"
-    message += f"formatted number: {data['formatted']}\n"  
-    message += f"local_format: {data['local_format']}\n"  
-    message += f"fraud_score: {data['fraud_score']}\n"  
-    message += f"recent_abuse: {data['recent_abuse']}\n"  
-    message += f"VOIP: {data['VOIP']}\n"  
-    message += f"prepaid: {data['prepaid']}\n"  
-    message += f"risky: {data['risky']}\n"  
-    message += f"active: {data['active']}\n"  
-    message += f"carrier: {data['carrier']}\n"  
-    message += f"line_type: {data['line_type']}\n"  
-    message += f"country: {data['country']}\n"  
-    message += f"city: {data['city']}\n"  
-    message += f"zip_code: {data['zip_code']}\n"    
-    message += f"region: {data['region']}\n"
+    message += f"[{emoji.emojize(':information:')}valid] :     {data['message']}\n"  
+    message += f"[{emoji.emojize(':hot_springs:')}success] :     {data['success']}\n"
+    message += f"[{emoji.emojize(':telephone_receiver:')}formatted number] :     {data['formatted']}\n"  
+    message += f"[{emoji.emojize(':telephone:')}local_format] :     {data['local_format']}\n"  
+    message += f"[{emoji.emojize(':potato:')}fraud_score] :     {data['fraud_score']}\n"  
+    message += f"[{emoji.emojize(':popcorn:')}recent_abuse] :     {data['recent_abuse']}\n"  
+    message += f"[{emoji.emojize(':radioactive:')}VOIP] :     {data['VOIP']}\n"  
+    message += f"[{emoji.emojize(':roller_coaster:')}prepaid] :     {data['prepaid']}\n"  
+    message += f"[{emoji.emojize(':scarf:')}risky] :     {data['risky']}\n"  
+    message += f"[{emoji.emojize(':shamrock:')}active] :     {data['active']}\n"  
+    message += f"[{emoji.emojize(':bank:')}carrier] :     {data['carrier']}\n"  
+    message += f"[{emoji.emojize(':mobile_phone_with_arrow:')}line_type] :     {data['line_type']}\n"  
+    message += f"[{emoji.emojize(':black_flag:')}country] :     {data['country']}\n"  
+    message += f"[{emoji.emojize(':cityscape_at_dusk:')}city] :     {data['city']}\n"  
+    message += f"[{emoji.emojize(':closed_mailbox_with_lowered_flag:')}zip_code] :     {data['zip_code']}\n"    
+    message += f"[{emoji.emojize(':potato:')}region] :     {data['region']}\n"
     print(message) 
     await update.callback_query.message.reply_text(message)
 
 async def handle_option2(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """处理选项2"""
     # 执行选项2的操作
+    # 获取当前日期和时间
     current_datetime = datetime.now()
+
+    # 创建一个时区对象
+    timezone = pytz.timezone('Asia/Shanghai')
+
+    # 将日期和时间设置为指定时区
+    current_datetime = current_datetime.astimezone(timezone)
+
+    # 格式化日期字符串
     date = current_datetime.strftime("%Y-%m-%d")
+
+    # 格式化时间字符串
     time = current_datetime.strftime("%H:%M:%S")
 
-    response = f"当前日期：\n{date}\n当前时间：\n{time}"
+    response = f"{emoji.emojize(':calendar:')}当前日期：\n{date}\n{emoji.emojize(':timer_clock:')}当前时间：\n{time}"
     await update.callback_query.message.reply_text(response)    
 
 async def handle_option3(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
