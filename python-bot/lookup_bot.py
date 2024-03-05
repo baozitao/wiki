@@ -77,7 +77,7 @@ async def handle_option1(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     message += f"[{emoji.emojize(':hot_springs:')}success] :     {data['success']}\n"
     message += f"[{emoji.emojize(':telephone_receiver:')}formatted number] :     {data['formatted']}\n"  
     message += f"[{emoji.emojize(':telephone:')}local_format] :     {data['local_format']}\n"  
-    message += f"[{emoji.emojize(':potato:')}fraud_score] :     {data['fraud_score']}\n"  
+    message += f"[{emoji.emojize(':potato:')}fraud_score]  :     {data['fraud_score']}\n"  
     message += f"[{emoji.emojize(':popcorn:')}recent_abuse] :     {data['recent_abuse']}\n"  
     message += f"[{emoji.emojize(':radioactive:')}VOIP] :     {data['VOIP']}\n"  
     message += f"[{emoji.emojize(':roller_coaster:')}prepaid] :     {data['prepaid']}\n"  
