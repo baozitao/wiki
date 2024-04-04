@@ -1,4 +1,4 @@
-## 遇到问题怎么办
+## apt鏃跺�欐樉绀簂ock
 ```
 E: Could not get lock /var/lib/apt/lists/lock. It is held by process 1898760 (apt-get)
 ```

@@ -1,3 +1,0 @@
-systemctl stop systemd-resolved
-vim /etc/systemd/resolved.conf,DNS=8.8.8.8  #取消注释，增加dns,DNSStubListener=no  #取消注释，把yes改为no
-ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
