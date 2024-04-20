@@ -1,0 +1,95 @@
+version: '3.8'
+services:
+###########################################  mysql  #######################################
+  mysql:
+    image: mysql:8.3.0
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: cetc
+      MYSQL_DATABASE: db
+      MYSQL_USER: cetc
+      MYSQL_PASSWORD: cetc
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+        # - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+        # - ./db/my.cnf:/etc/mysql/my.cnf
+###########################################  adminer  #######################################
+  adminer:
+    image:  adminer:4.8.1
+    container_name: adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+
+###########################################  postgres  #######################################
+  postgres:
+    image: postgres:16.2
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=db
+
+###########################################  librespeed  #######################################
+  librespeed:
+    image: linuxserver/librespeed:5.3.0
+    container_name: librespeed
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=123456
+    ports:
+      - 8989:80
+
+###########################################  redis  #######################################
+  redis:
+    # 镜像名称以及版本号
+    image: redis:7.2.4
+    # 失败后总是重启
+    restart: unless-stopped
+    # 自定义容器名
+    container_name: redis
+    # 文件夹以及文件映射
+    volumes:
+      - redis_data:/data
+      - /app/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+        #- /app/redis/logs:/logs
+    command:
+      # 以配置文件的方式启动 redis.conf
+      redis-server /usr/local/etc/redis/redis.conf
+    ports:
+      # 端口号
+      - '6379:6379'      
+
+###########################################  autoK3s  #######################################
+  autok3s:
+    image: cnrancher/autok3s:v0.9.2
+    restart: unless-stopped
+#   network_mode: "host"    
+    init: true
+    ports:
+    - 8080:8086
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - autok3s_data:$HOME/.autok3s/
+    environment:
+      - AUTOK3S_CONFIG=$HOME/.autok3s/
+      - VIRTUAL_HOST=autok3s.vcap.me
+
+###############  volumes for mysql  ###############
+volumes:
+  mysql_data:
+  postgres_data:
+  redis_data:
+  autok3s_data:
