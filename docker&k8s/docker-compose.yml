@@ -86,6 +86,13 @@ services:
     environment:
       - AUTOK3S_CONFIG=$HOME/.autok3s/
       - VIRTUAL_HOST=autok3s.vcap.me
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.k3s.rule=Host(`k3s.homeserver.com`)"
+      - "traefik.http.routers.k3s.entrypoints=web"
+      - "traefik.http.services.k3s.loadbalancer.server.port=8080"
+    networks:
+      - proxy   #######################  使用和traefik一样的网络  #######################
 
 ###########################################  glances  #######################################
   monitoring:
