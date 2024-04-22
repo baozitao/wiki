@@ -87,6 +87,69 @@ services:
       - AUTOK3S_CONFIG=$HOME/.autok3s/
       - VIRTUAL_HOST=autok3s.vcap.me
 
+###########################################  glances  #######################################
+  monitoring:
+    image: nicolargo/glances:latest
+    restart: always
+    pid: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Uncomment the below line if you want glances to display host OS detail instead of container's
+      # - /etc/os-release:/etc/os-release:ro
+    environment:
+      - "GLANCES_OPT=-w"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mornitor.rule=Host(`glance.homeserver.com`)"
+      - "traefik.http.routers.mornitor.entrypoints=web"
+      - "traefik.http.services.mornitor.loadbalancer.server.port=61208"
+    networks:
+      - proxy
+
+###########################################  traefik  #######################################
+  reverse-proxy:
+    image: traefik:v2.11.2
+    container_name: traefik
+    command:
+      - "--api=true"
+      - "--api.dashboard=true"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--ping=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8081:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider --proxy off localhost:8080/ping || exit 1"]
+      interval: 3s
+      retries: 10
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cc.rule=Host(`traefik.homeserver.com`)"
+      - "traefik.http.routers.cc.entrypoints=web"
+      - "traefik.http.services.cc.loadbalancer.server.port=8080"
+    networks:    #######################  必须创建网络  docker network create proxy  #######################
+      - proxy
+
+  whoami:
+    image: emilevauge/whoami
+    container_name: simple-service
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dd.rule=Host(`whoami.homeserver.com`)"
+      - "traefik.http.routers.dd.entrypoints=web"
+    networks:
+      - proxy
+
+#######################  必须创建网络  ,docker network create proxy  #######################
+networks:    
+  proxy:
+    external: true    #######################  必须创建网络在每个docker-compose中使用  #######################
+
 ###############  volumes for mysql  ###############
 volumes:
   mysql_data:
