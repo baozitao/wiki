@@ -24,6 +24,14 @@ ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
 sudo sed -i 's/#DNSStubListener=.*/DNSStubListener=no/' /etc/systemd/resolved.conf && sudo systemctl restart systemd-resolved
 ```
 
+##  dial tcp: lookup registry-1.docker.io on 127.0.0.53:53: read udp
+/etc/resolv.conf
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
 ## 删除所有exited状态的容器
 ```
 docker rm $(docker ps -a -q -f status=exited)

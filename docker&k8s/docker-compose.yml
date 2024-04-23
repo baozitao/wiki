@@ -39,19 +39,6 @@ services:
       - POSTGRES_USER=admin
       - POSTGRES_DB=db
 
-###########################################  librespeed  #######################################
-  librespeed:
-    image: linuxserver/librespeed:5.3.0
-    container_name: librespeed
-    restart: unless-stopped
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-      - PASSWORD=123456
-    ports:
-      - 8989:80
-
 ###########################################  redis  #######################################
   redis:
     # 镜像名称以及版本号
@@ -78,8 +65,8 @@ services:
     restart: unless-stopped
 #   network_mode: "host"    
     init: true
-    ports:
-    - 8080:8086
+#    ports:
+#    - 8080:8086
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - autok3s_data:$HOME/.autok3s/
@@ -125,9 +112,10 @@ services:
       - "--providers.docker.exposedbydefault=false"
       - "--ping=true"
       - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
     ports:
       - "80:80"
-      - "8081:8080"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     healthcheck:
@@ -138,6 +126,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.cc.rule=Host(`traefik.homeserver.com`)"
       - "traefik.http.routers.cc.entrypoints=web"
+      - "traefik.docker.network=proxy"      
       - "traefik.http.services.cc.loadbalancer.server.port=8080"
     networks:    #######################  必须创建网络  docker network create proxy  #######################
       - proxy
@@ -152,6 +141,197 @@ services:
     networks:
       - proxy
 
+###########################################  Dashy  #######################################
+  dashy:
+    container_name: Dashy
+
+    # Pull latest image from DockerHub
+    image: lissy93/dashy:3.0.0
+
+    # To build from source, replace 'image: lissy93/dashy' with 'build: .'
+    # build: .
+
+    # You can also use an image with a different tag, or pull from a different registry, e.g:
+    # image: ghcr.io/lissy93/dashy or image: lissy93/dashy:3.0.0
+
+    # Pass in your config file below, by specifying the path on your host machine
+    volumes:
+      - /app/dashy/conf.yml:/app/user-data/conf.yml
+      # - /path/to/item-icons:/app/user-data/item-icons/
+
+    # Set port that web service will be served on. Keep container port as 80
+    ports:
+      - 4000:8080
+
+    # Set any environmental variables
+    environment:
+      - NODE_ENV=production
+    # Specify your user ID and group ID. You can find this by running `id -u` and `id -g`
+    #  - UID=1000
+    #  - GID=1000
+
+    # Specify restart policy
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.Dashy.rule=Host(`dashy.homeserver.com`)"
+      - "traefik.http.routers.Dashy.entrypoints=web"
+      - "traefik.http.services.Dashy.loadbalancer.server.port=8080"      
+    networks:
+      - proxy
+
+    # Configure healthchecks
+    healthcheck:
+      test: ['CMD', 'node', '/app/services/healthcheck']
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+###########################################  dozzle  #######################################
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:v6.5.0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 8888:8080
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dozzle.rule=Host(`log.homeserver.com`)"
+      - "traefik.http.routers.dozzle.entrypoints=web"
+      - "traefik.http.services.dozzle.loadbalancer.server.port=8080"      
+    networks:
+      - proxy
+
+###########################################  portainer  #######################################
+  portainer:
+    image: portainer/portainer-ce:2.19.5
+#    ports:
+#      - 9443:9443
+    volumes:
+      - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.homeserver.com`)"
+      - "traefik.http.routers.portainer.entrypoints=websecure"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9443"
+    networks:
+      - proxy
+
+###########################################  netdata  #######################################
+  netdata:
+    image: netdata/netdata:v1.45.3
+    container_name: netdata
+    hostname: $(hostname)
+    restart: unless-stopped
+    ports:
+      - 19999:19999    
+    cap_add:
+      - SYS_PTRACE
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - netdataconfig:/etc/netdata
+      - netdatalib:/var/lib/netdata
+      - netdatacache:/var/cache/netdata
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+      - /var/log:/host/var/log:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.netdata.rule=Host(`netdata.homeserver.com`)"
+      - "traefik.http.routers.netdata.entrypoints=web"
+      - "traefik.http.services.netdata.loadbalancer.server.port=19999"
+    networks:
+      - proxy
+
+###########################################  portainer-agent  #######################################
+  portainer-agent:
+    container_name: portainer-agent
+    image: portainer/agent:2.19.5
+    ports:
+      - "9001:9001"  
+    volumes:
+      # Mount the host's Docker socket into the container
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Mount the host's Docker volumes into the container
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+    depends_on:
+      - portainer
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1024M
+      restart_policy:
+        condition: unless-stopped
+        delay: 5s
+        window: 120s
+    networks:
+      - proxy
+
+###########################################  drawio  #######################################
+  drawio:
+    image: jgraph/drawio:24.2.7
+    container_name: drawio
+    restart: unless-stopped
+#    ports:
+#      - 8080:8080
+#      - 8443:8443
+    environment:
+      PUBLIC_DNS: domain
+      ORGANISATION_UNIT: unit
+      ORGANISATION: org
+      CITY: city
+      STATE: state
+      COUNTRY_CODE: country
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://domain:8080 || exit 1"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.drawio.rule=Host(`drawio.homeserver.com`)"
+      - "traefik.http.routers.drawio.entrypoints=web"
+      - "traefik.http.services.drawio.loadbalancer.server.port=8080"
+    networks:
+      - proxy
+
+###########################################  librespeed  #######################################
+
+  librespeed:
+    image: linuxserver/librespeed:5.3.0
+    container_name: librespeed
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=123456
+#    volumes:
+#      - /path/to/librespeed/config:/config
+#    ports:
+#      - 80:80
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.librespeed.rule=Host(`librespeed.homeserver.com`)"
+      - "traefik.http.routers.librespeed.entrypoints=web"
+      - "traefik.http.services.librespeed.loadbalancer.server.port=80"
+    networks:
+      - proxy
+
+
 #######################  必须创建网络  ,docker network create proxy  #######################
 networks:    
   proxy:
@@ -163,3 +343,7 @@ volumes:
   postgres_data:
   redis_data:
   autok3s_data:
+  portainer_data:
+  netdataconfig:
+  netdatalib:
+  netdatacache:
