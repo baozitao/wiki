@@ -32,6 +32,14 @@ nameserver 8.8.4.4
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
+##  systemd-journal [301]: failed to write entry  XXXX  ignoring: Read-only file system
+1.进入recover模式
+2.修改/etc/default/grub 中 GRUB_CMDLINE_LINUX_DEFAULT变量
+3.增加fsck.mode=force fsck.repair=yes
+4.update-grub
+5.reboot
+
+
 ## 删除所有exited状态的容器
 ```
 docker rm $(docker ps -a -q -f status=exited)
