@@ -57,7 +57,7 @@ sections:
       hideForGuests: false
     items:
       - title: portainer
-        url: https://portainer.homeserver.com
+        url: http://portainer.homeserver.com
         id: 0_1056_portainer
       - title: pihole
         url: http://pihole.homeserver.com
@@ -77,6 +77,7 @@ sections:
         url: https://www.youtube.com/
         id: 0_841_youtube
       - title: Google
+        icon: /app/user-data/item-icons/google.svg
         url: https://www.google.com
         id: 1_841_google
   - name: Mornitor
@@ -122,6 +123,20 @@ sections:
       - title: nextcloud
         url: http://nextcloud.homeserver.com
         id: 1_529_nextcloud
+  - name: Aria Info
+    widgets:
+      - type: gl-current-cpu
+        options:
+          hostname: http:10.0.0.66:61208
+      - type: gl-current-mem
+        options:
+          hostname: http:10.0.0.66:61208
+      - type: clock
+        options:
+          timeZone: Asia/Shanghai
+          format: en-GB
+          hideDate: false
+
 pages:
   - displayData:
       hideForGuests: false

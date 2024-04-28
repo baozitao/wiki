@@ -82,10 +82,13 @@ services:
       - proxy   #######################  使用和traefik一样的网络  #######################
 
 ###########################################  glances  #######################################
-  monitoring:
+  glance:
     image: nicolargo/glances:latest
     restart: always
+    container_name: glance
     pid: host
+    ports:
+      - "61028:61028"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       # Uncomment the below line if you want glances to display host OS detail instead of container's
@@ -207,8 +210,9 @@ services:
 ###########################################  portainer  #######################################
   portainer:
     image: portainer/portainer-ce:2.19.5
-#    ports:
-#      - 9443:9443
+    container_name: portainer
+    ports:
+      - 9443:9443
     volumes:
       - portainer_data:/data
       - /var/run/docker.sock:/var/run/docker.sock
@@ -342,7 +346,6 @@ services:
     # Volumes store your data between container upgrades
     volumes:
       - './pihole/etc-pihole/:/etc/pihole'
-      - ./pihole/custom.list:/etc/pihole/custom.list      
       - './pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
 
     #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
@@ -395,9 +398,6 @@ services:
       - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
     networks:
       - proxy
-
-
-
 
 #######################  必须创建网络  ,docker network create prox  #######################
 networks:    
