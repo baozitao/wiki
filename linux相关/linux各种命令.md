@@ -53,7 +53,7 @@ sudo fuser -vik -TERM /var/lib/apt/lists/lock
 ```
 
 ## apt更新必要工具
-apt install -y curl vim wireshark sockperf fio hdparm sdparm netcat net-tools kazam openssh-server htop ntpdate chrony tree nmap  git python3-pip wget tftp tmux filezilla
+apt install -y curl vim wireshark sockperf fio hdparm sdparm netcat net-tools kazam openssh-server htop ntpdate chrony tree nmap  git python3-pip wget tftp tmux filezilla ufw
 
 
 

@@ -363,6 +363,25 @@ services:
     networks:
       - proxy
 
+###########################################   1panel  #######################################
+  1panel:
+    container_name: 1panel # 容器名
+    restart: always
+    network_mode: "host"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+      - /opt:/opt  # 文件存储映射
+      - /root:/root  # 可选的文件存储映射
+    environment:
+      - TZ=Asia/Shanghai  # 时区设置
+    image: moelin/1panel:v1.9.6
+    labels:  
+      - "traefik.enable=true"
+      - "traefik.http.routers.1panel.rule=Host(`1panel.homeserver.com`)"
+      - "traefik.http.routers.1panel.entrypoints=web"
+    networks:
+      - proxy
 
 ###########################################   nextcloud  #######################################
   next-pg:
