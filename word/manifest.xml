@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:type="TaskPaneApp">
+    <Id>my-python-addin</Id>
+    <Version>1.0.0</Version>
+    <ProviderName>Contoso</ProviderName>
+    <DefaultLocale>en-US</DefaultLocale>
+    <DisplayName DefaultValue="My Python Add-in" />
+    <Description DefaultValue="This is my Python-powered Office Add-in." />
+    <IconUrl DefaultValue="https://contoso.com/assets/icon-32.png" />
+    <HighResolutionIconUrl DefaultValue="https://contoso.com/assets/icon-80.png" />
+    <SupportUrl DefaultValue="https://www.contoso.com/help" />
+    <AppDomains>
+        <AppDomain>https://www.contoso.com</AppDomain>
+    </AppDomains>
+    <SourceLocation DefaultValue="addin.py" />
+</OfficeApp>

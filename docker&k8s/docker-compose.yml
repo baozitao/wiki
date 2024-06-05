@@ -2,7 +2,7 @@ version: '3.8'
 services:
 ###########################################  mysql  #######################################
   mysql:
-    image: mysql:8.3.0
+    image: mysql:8.4.0
     container_name: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: unless-stopped
@@ -38,6 +38,48 @@ services:
       - POSTGRES_PASSWORD=123456
       - POSTGRES_USER=admin
       - POSTGRES_DB=db
+
+###########################################  coredns  #######################################
+  coredns:
+      container_name: coredns
+      image: coredns/coredns:1.11.1
+      hostname: ns1.example.net
+      ports:
+        - 53:53
+      command: -conf /etc/coredns/Corefile
+      volumes:
+        - ./corednsconfig:/etc/coredns
+      restart: unless-stopped
+      ports:
+          - '10.0.0.1:53:53'
+          - '10.0.0.1:53:53/udp'
+          - '10.0.0.1:9153:9153'
+
+# Corefile 内容
+# .:53 {
+#     forward . 1.1.1.1 1.0.0.1
+#     log
+#     errors
+#     acl {
+#         allow net 10.0.0.0/24
+#         filter net 0.0.0.0/0
+#     }
+# }
+# example.com:53 {
+#     file /etc/coredns/db.example.com
+#     log
+#     errors
+#     acl {
+#         allow net 10.0.0.0/24
+#         filter net 0.0.0.0/0
+#     }
+#     transfer {
+#       to 10.0.0.2
+#     }
+# }
+
+
+
 
 ###########################################  redis  #######################################
   redis:
@@ -380,8 +422,6 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.1panel.rule=Host(`1panel.homeserver.com`)"
       - "traefik.http.routers.1panel.entrypoints=web"
-    networks:
-      - proxy
 
 ###########################################   nextcloud  #######################################
   next-pg:
@@ -417,6 +457,110 @@ services:
       - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
     networks:
       - proxy
+
+###########################################   hertzbeat  #######################################
+  hertzbeat:
+      image: apache/hertzbeat:v1.5.0
+      container_name: hertzbeat      
+      ports:
+        - 1157:1157
+        - 1158:1158
+      environment:
+        - LANG=en_US.UTF-8 
+        - TZ=Asia/Shanghai
+      volumes:
+        - /app/hertzbeat/data:/opt/hertzbeat/data
+        - /app/hertzbeat/logs:/opt/hertzbeat/logs
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.hertzbeat.rule=Host(`hertzbeat.homeserver.com`)"
+        - "traefik.http.routers.hertzbeat.entrypoints=web"
+        - "traefik.http.services.hertzbeat.loadbalancer.server.port=1157"
+      networks:
+        - proxy
+
+
+
+# networks:
+#   hertzbeat:
+#     driver: bridge
+
+# services:
+#   mysql:
+#     image: mysql:8.4.0
+#     container_name: compose-mysql
+#     hostname: mysql
+#     restart: always
+#     healthcheck:
+#       test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 --silent']
+#       interval: 3s
+#       retries: 5
+#       start_period: 3m
+#     ports:
+#       - "3306"
+#     environment:
+#       TZ: Asia/Shanghai
+#       MYSQL_ROOT_PASSWORD: 123456
+#     volumes:
+#       - ./dbdata/mysqldata:/var/lib/mysql/
+#       - ./conf/sql:/docker-entrypoint-initdb.d/
+#     networks:
+#       - hertzbeat
+
+#   tdengine:
+#     image: tdengine/tdengine:3.2.2.0
+#     container_name: compose-tdengine
+#     hostname: tdengine
+#     restart: always
+#     healthcheck:
+#       test: ['CMD-SHELL', 'curl -u root:taosdata -d "show databases" tdengine:6041/rest/sql']
+#       interval: 10s
+#       retries: 5
+#       timeout: 5s
+#       start_period: 1m
+#     environment:
+#       TZ: Asia/Shanghai
+#     ports:
+#       - "6041"
+#     volumes:
+#       - ./dbdata/taosdata:/var/lib/taos/
+#     networks:
+#       - hertzbeat
+
+#   hertzbeat:
+#     image: apache/hertzbeat:v1.5.0
+#     container_name: compose-hertzbeat
+#     hostname: hertzbeat
+#     restart: always
+#     environment:
+#       TZ: Asia/Shanghai
+#       LANG: zh_CN.UTF-8
+#     depends_on:
+#       mysql:
+#         condition: service_healthy
+#       tdengine:
+#         condition: service_healthy
+#     volumes:
+#       - ./conf/application.yml:/opt/hertzbeat/config/application.yml
+#       - ./conf/sureness.yml:/opt/hertzbeat/config/sureness.yml
+#     ports:
+#       - "1157:1157"
+#       - "1158:1158"
+#     networks:
+#       - hertzbeat
+
+##########################################
+####$ docker exec -it tdengine /bin/bash
+####root@tdengine-server:~/TDengine-server-2.4.0.4#
+####root@tdengine-server:~/TDengine-server-2.4.0.4# taos
+####Welcome to the TDengine shell from Linux, Client Version: 2.4.0.4
+####Copyright (c) 2020 by TAOS Data, Inc. All rights reserved.
+####taos>
+####taos> show databases;
+####taos> CREATE DATABASE hertzbeat KEEP 90 DURATION 10 BUFFER 16;
+####docker-compose restart hertzbeat
+####Browser access localhost:1157 to start, the default account password admin/hertzbeat
+
 
 #######################  必须创建网络  ,docker network create prox  #######################
 networks:    
