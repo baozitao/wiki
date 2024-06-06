@@ -75,3 +75,15 @@ sudo apt install ansible
 ## 代理
 export http_proxy=http://10.0.0.12:7890
 export https_proxy=http://10.0.0.12:7890
+
+
+## docker加速
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+    "registry-mirrors": [
+        "https://dockerproxy.com",
+        "https://docker.mirrors.ustc.edu.cn",
+        "https://docker.nju.edu.cn"
+    ]
+}
