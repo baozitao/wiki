@@ -460,7 +460,7 @@ services:
 
 ###########################################   hertzbeat  #######################################
   hertzbeat:
-      image: apache/hertzbeat:v1.5.0
+      image: apache/hertzbeat:v1.6.0
       container_name: hertzbeat      
       ports:
         - 1157:1157

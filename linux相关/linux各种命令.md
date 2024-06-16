@@ -73,8 +73,8 @@ sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 
 ## 代理
-export http_proxy=http://10.0.0.12:7890
-export https_proxy=http://10.0.0.12:7890
+export http_proxy=http://10.0.0.30:7890
+export https_proxy=http://10.0.0.30:7890
 
 
 ## docker加速
